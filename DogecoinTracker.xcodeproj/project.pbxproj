@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FEE548A91BC225E100801747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548A81BC225E100801747 /* AppDelegate.swift */; };
+		FEE548AB1BC225E100801747 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548AA1BC225E100801747 /* ViewController.swift */; };
+		FEE548AE1BC225E100801747 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE548AC1BC225E100801747 /* Main.storyboard */; };
+		FEE548B01BC225E100801747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEE548AF1BC225E100801747 /* Assets.xcassets */; };
+		FEE548B31BC225E100801747 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE548B11BC225E100801747 /* LaunchScreen.storyboard */; };
+		FEE548BE1BC225E100801747 /* DogecoinTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548BD1BC225E100801747 /* DogecoinTrackerTests.swift */; };
+		FEE548C91BC225E100801747 /* DogecoinTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548C81BC225E100801747 /* DogecoinTrackerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FEE548BA1BC225E100801747 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE5489D1BC225E100801747 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEE548A41BC225E100801747;
+			remoteInfo = DogecoinTracker;
+		};
+		FEE548C51BC225E100801747 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE5489D1BC225E100801747 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEE548A41BC225E100801747;
+			remoteInfo = DogecoinTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FEE548A51BC225E100801747 /* DogecoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogecoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE548A81BC225E100801747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEE548AA1BC225E100801747 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FEE548AD1BC225E100801747 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEE548AF1BC225E100801747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEE548B21BC225E100801747 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FEE548B41BC225E100801747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE548B91BC225E100801747 /* DogecoinTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogecoinTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE548BD1BC225E100801747 /* DogecoinTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogecoinTrackerTests.swift; sourceTree = "<group>"; };
+		FEE548BF1BC225E100801747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE548C41BC225E100801747 /* DogecoinTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogecoinTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE548C81BC225E100801747 /* DogecoinTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogecoinTrackerUITests.swift; sourceTree = "<group>"; };
+		FEE548CA1BC225E100801747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEE548A21BC225E100801747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548B61BC225E100801747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548C11BC225E100801747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FEE5489C1BC225E100801747 = {
+			isa = PBXGroup;
+			children = (
+				FEE548A71BC225E100801747 /* DogecoinTracker */,
+				FEE548BC1BC225E100801747 /* DogecoinTrackerTests */,
+				FEE548C71BC225E100801747 /* DogecoinTrackerUITests */,
+				FEE548A61BC225E100801747 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEE548A61BC225E100801747 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEE548A51BC225E100801747 /* DogecoinTracker.app */,
+				FEE548B91BC225E100801747 /* DogecoinTrackerTests.xctest */,
+				FEE548C41BC225E100801747 /* DogecoinTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEE548A71BC225E100801747 /* DogecoinTracker */ = {
+			isa = PBXGroup;
+			children = (
+				FEE548A81BC225E100801747 /* AppDelegate.swift */,
+				FEE548AA1BC225E100801747 /* ViewController.swift */,
+				FEE548AC1BC225E100801747 /* Main.storyboard */,
+				FEE548AF1BC225E100801747 /* Assets.xcassets */,
+				FEE548B11BC225E100801747 /* LaunchScreen.storyboard */,
+				FEE548B41BC225E100801747 /* Info.plist */,
+			);
+			path = DogecoinTracker;
+			sourceTree = "<group>";
+		};
+		FEE548BC1BC225E100801747 /* DogecoinTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEE548BD1BC225E100801747 /* DogecoinTrackerTests.swift */,
+				FEE548BF1BC225E100801747 /* Info.plist */,
+			);
+			path = DogecoinTrackerTests;
+			sourceTree = "<group>";
+		};
+		FEE548C71BC225E100801747 /* DogecoinTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FEE548C81BC225E100801747 /* DogecoinTrackerUITests.swift */,
+				FEE548CA1BC225E100801747 /* Info.plist */,
+			);
+			path = DogecoinTrackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEE548A41BC225E100801747 /* DogecoinTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEE548CD1BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTracker" */;
+			buildPhases = (
+				FEE548A11BC225E100801747 /* Sources */,
+				FEE548A21BC225E100801747 /* Frameworks */,
+				FEE548A31BC225E100801747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DogecoinTracker;
+			productName = DogecoinTracker;
+			productReference = FEE548A51BC225E100801747 /* DogecoinTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEE548B81BC225E100801747 /* DogecoinTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEE548D01BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerTests" */;
+			buildPhases = (
+				FEE548B51BC225E100801747 /* Sources */,
+				FEE548B61BC225E100801747 /* Frameworks */,
+				FEE548B71BC225E100801747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEE548BB1BC225E100801747 /* PBXTargetDependency */,
+			);
+			name = DogecoinTrackerTests;
+			productName = DogecoinTrackerTests;
+			productReference = FEE548B91BC225E100801747 /* DogecoinTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FEE548C31BC225E100801747 /* DogecoinTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEE548D31BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerUITests" */;
+			buildPhases = (
+				FEE548C01BC225E100801747 /* Sources */,
+				FEE548C11BC225E100801747 /* Frameworks */,
+				FEE548C21BC225E100801747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEE548C61BC225E100801747 /* PBXTargetDependency */,
+			);
+			name = DogecoinTrackerUITests;
+			productName = DogecoinTrackerUITests;
+			productReference = FEE548C41BC225E100801747 /* DogecoinTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEE5489D1BC225E100801747 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Myzithra;
+				TargetAttributes = {
+					FEE548A41BC225E100801747 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					FEE548B81BC225E100801747 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FEE548A41BC225E100801747;
+					};
+					FEE548C31BC225E100801747 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FEE548A41BC225E100801747;
+					};
+				};
+			};
+			buildConfigurationList = FEE548A01BC225E100801747 /* Build configuration list for PBXProject "DogecoinTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEE5489C1BC225E100801747;
+			productRefGroup = FEE548A61BC225E100801747 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEE548A41BC225E100801747 /* DogecoinTracker */,
+				FEE548B81BC225E100801747 /* DogecoinTrackerTests */,
+				FEE548C31BC225E100801747 /* DogecoinTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FEE548A31BC225E100801747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEE548B31BC225E100801747 /* LaunchScreen.storyboard in Resources */,
+				FEE548B01BC225E100801747 /* Assets.xcassets in Resources */,
+				FEE548AE1BC225E100801747 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548B71BC225E100801747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548C21BC225E100801747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEE548A11BC225E100801747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEE548AB1BC225E100801747 /* ViewController.swift in Sources */,
+				FEE548A91BC225E100801747 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548B51BC225E100801747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEE548BE1BC225E100801747 /* DogecoinTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE548C01BC225E100801747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEE548C91BC225E100801747 /* DogecoinTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEE548BB1BC225E100801747 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEE548A41BC225E100801747 /* DogecoinTracker */;
+			targetProxy = FEE548BA1BC225E100801747 /* PBXContainerItemProxy */;
+		};
+		FEE548C61BC225E100801747 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEE548A41BC225E100801747 /* DogecoinTracker */;
+			targetProxy = FEE548C51BC225E100801747 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FEE548AC1BC225E100801747 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEE548AD1BC225E100801747 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FEE548B11BC225E100801747 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEE548B21BC225E100801747 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FEE548CB1BC225E100801747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FEE548CC1BC225E100801747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEE548CE1BC225E100801747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DogecoinTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FEE548CF1BC225E100801747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DogecoinTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FEE548D11BC225E100801747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DogecoinTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogecoinTracker.app/DogecoinTracker";
+			};
+			name = Debug;
+		};
+		FEE548D21BC225E100801747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DogecoinTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogecoinTracker.app/DogecoinTracker";
+			};
+			name = Release;
+		};
+		FEE548D41BC225E100801747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DogecoinTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DogecoinTracker;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FEE548D51BC225E100801747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DogecoinTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DogecoinTracker;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEE548A01BC225E100801747 /* Build configuration list for PBXProject "DogecoinTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE548CB1BC225E100801747 /* Debug */,
+				FEE548CC1BC225E100801747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEE548CD1BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE548CE1BC225E100801747 /* Debug */,
+				FEE548CF1BC225E100801747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FEE548D01BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE548D11BC225E100801747 /* Debug */,
+				FEE548D21BC225E100801747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FEE548D31BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE548D41BC225E100801747 /* Debug */,
+				FEE548D51BC225E100801747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEE5489D1BC225E100801747 /* Project object */;
+}
