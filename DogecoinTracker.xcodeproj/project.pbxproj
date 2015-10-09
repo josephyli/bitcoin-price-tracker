@@ -192,6 +192,7 @@
 				TargetAttributes = {
 					FEE548A41BC225E100801747 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = ZS2F55TXK8;
 					};
 					FEE548B81BC225E100801747 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -396,10 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DogecoinTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -407,10 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DogecoinTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -481,6 +488,7 @@
 				FEE548CF1BC225E100801747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEE548D01BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +497,7 @@
 				FEE548D21BC225E100801747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEE548D31BC225E100801747 /* Build configuration list for PBXNativeTarget "DogecoinTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +506,7 @@
 				FEE548D51BC225E100801747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
