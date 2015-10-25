@@ -9,21 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var display: UILabel!
-
-    var userIsInTheMiddleofTypingaNumber: Bool = false
     
-    @IBAction func appendDigit(sender: UIButton) {
-        let digit = sender.currentTitle!
-        if userIsInTheMiddleofTypingaNumber {
-            display.text = display.text! + digit
-        } else {
-            display.text = digit
-            userIsInTheMiddleofTypingaNumber = true
-        }
-
-        print("digit = \(digit)")
+    @IBAction func blueButton(sender: UIButton) {
+        self.view.backgroundColor = UIColor.blueColor()
+    }
+    
+    @IBAction func redButton(sender: UIButton) {
+        self.view.backgroundColor = UIColor.redColor()
     }
 
 
