@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBAction func blueButton(sender: UIButton) {
-        self.view.backgroundColor = UIColor.blueColor()
-    }
-    
-    @IBAction func redButton(sender: UIButton) {
-        self.view.backgroundColor = UIColor.redColor()
-    }
+//    @IBAction func blueButton(sender: UIButton) {
+//        self.view.backgroundColor = UIColor.blueColor()
+//    }
+//    
+//    @IBAction func redButton(sender: UIButton) {
+//        self.view.backgroundColor = UIColor.redColor()
+//    }
 
 
 }
