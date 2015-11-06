@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,7 +8,7 @@
         <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="ViewController" customClass="Launch" sceneMemberID="viewController">
+                <viewController title="View Controller" id="BYZ-38-t0r" userLabel="ViewController" customClass="ViewController" customModule="DogecoinTracker" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -56,15 +56,15 @@
             </objects>
             <point key="canvasLocation" x="-1344" y="169"/>
         </scene>
-        <!--Settings-->
+        <!--Settings Controller-->
         <scene sceneID="t5T-6Y-p13">
             <objects>
-                <viewController title="Settings" id="tsV-Ja-ixV" sceneMemberID="viewController">
+                <viewController id="tsV-Ja-ixV" customClass="SettingsController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SRD-gJ-de9"/>
                         <viewControllerLayoutGuide type="bottom" id="y2Z-FO-pMJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BJe-CF-Lcx">
+                    <view key="view" contentMode="scaleToFill" id="BJe-CF-Lcx" customClass="SettingsController">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -107,14 +107,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIO-pY-QXs">
-                                <rect key="frame" x="10" y="266" width="143" height="67"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3p-eL-vlB">
-                                <rect key="frame" x="249" y="266" width="143" height="67"/>
-                                <animations/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rp8-h0-RX6">
                                 <rect key="frame" x="0.0" y="562" width="600" height="30"/>
                                 <animations/>
@@ -139,13 +131,6 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="At9-xu-hww"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mi6-aT-54c">
-                                <rect key="frame" x="136" y="386" width="444" height="58"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="467860566.64019001">
-                                    <!--2015-10-30 01:16:06 +0000-->
-                                </date>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="URL:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw1-DF-kvV">
                                 <rect key="frame" x="36" y="474" width="37" height="20"/>
                                 <animations/>
@@ -153,29 +138,32 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVv-om-kiL">
+                                <rect key="frame" x="175" y="357" width="397" height="87"/>
+                                <animations/>
+                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rp8-h0-RX6" firstAttribute="leading" secondItem="BJe-CF-Lcx" secondAttribute="leading" id="0Hj-pj-0Ux"/>
-                            <constraint firstItem="mi6-aT-54c" firstAttribute="bottom" secondItem="taR-WU-ldG" secondAttribute="bottom" id="4q0-3H-cRJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="taR-WU-ldG" secondAttribute="leading" id="69p-89-t72"/>
                             <constraint firstItem="y2Z-FO-pMJ" firstAttribute="top" secondItem="eGD-Z0-xR4" secondAttribute="bottom" constant="105" id="6k2-0B-Agd"/>
+                            <constraint firstItem="FVv-om-kiL" firstAttribute="leading" secondItem="taR-WU-ldG" secondAttribute="trailing" constant="47" id="6uh-Ux-OWZ"/>
                             <constraint firstItem="NvM-4C-uNf" firstAttribute="top" secondItem="SRD-gJ-de9" secondAttribute="bottom" constant="31" id="95e-gg-cb0"/>
                             <constraint firstItem="z74-KE-gzK" firstAttribute="top" secondItem="SRD-gJ-de9" secondAttribute="bottom" id="G1g-Pb-71K"/>
                             <constraint firstAttribute="leadingMargin" secondItem="NvM-4C-uNf" secondAttribute="leading" id="Koj-Xu-MiY"/>
-                            <constraint firstItem="mi6-aT-54c" firstAttribute="leading" secondItem="taR-WU-ldG" secondAttribute="trailing" constant="8" id="L2B-aR-zhR"/>
                             <constraint firstItem="rp8-h0-RX6" firstAttribute="centerX" secondItem="NvM-4C-uNf" secondAttribute="centerX" id="NOp-za-8Z2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Hw1-DF-kvV" secondAttribute="leading" id="Nh0-bH-Hbt"/>
                             <constraint firstItem="eGD-Z0-xR4" firstAttribute="top" secondItem="taR-WU-ldG" secondAttribute="bottom" constant="21" id="Ozr-PF-eHx"/>
-                            <constraint firstItem="mi6-aT-54c" firstAttribute="trailing" secondItem="eGD-Z0-xR4" secondAttribute="trailing" id="Qzy-CG-Al1"/>
                             <constraint firstItem="eGD-Z0-xR4" firstAttribute="leading" secondItem="Hw1-DF-kvV" secondAttribute="trailing" constant="31" id="RSO-4m-EUQ"/>
                             <constraint firstItem="y2Z-FO-pMJ" firstAttribute="top" secondItem="Hw1-DF-kvV" secondAttribute="bottom" constant="105" id="Trz-f8-PeP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGD-Z0-xR4" secondAttribute="trailing" id="XXK-a6-kru"/>
                             <constraint firstItem="rp8-h0-RX6" firstAttribute="top" secondItem="eGD-Z0-xR4" secondAttribute="bottom" constant="67" id="dz7-K7-mXK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FVv-om-kiL" secondAttribute="trailing" constant="8" id="fuz-u2-PEK"/>
+                            <constraint firstItem="eGD-Z0-xR4" firstAttribute="top" secondItem="FVv-om-kiL" secondAttribute="bottom" constant="26" id="hfe-hp-5gI"/>
                             <constraint firstItem="y2Z-FO-pMJ" firstAttribute="top" secondItem="rp8-h0-RX6" secondAttribute="bottom" constant="8" id="j5m-Ry-PZr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NvM-4C-uNf" secondAttribute="trailing" id="lam-KH-hev"/>
-                            <constraint firstItem="mi6-aT-54c" firstAttribute="top" secondItem="taR-WU-ldG" secondAttribute="top" id="nBr-3I-C6O"/>
                             <constraint firstItem="taR-WU-ldG" firstAttribute="leading" secondItem="z74-KE-gzK" secondAttribute="leading" id="yUg-NN-sWO"/>
                         </constraints>
                     </view>

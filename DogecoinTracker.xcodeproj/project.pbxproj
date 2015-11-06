@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE63AA781BE353B7003789A8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63AA771BE353B7003789A8 /* Settings.swift */; };
+		FE146DBA1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
+		FE146DBB1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
+		FE146DBC1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
+		FE63AA781BE353B7003789A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63AA771BE353B7003789A8 /* SettingsViewController.swift */; };
 		FEE548A91BC225E100801747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548A81BC225E100801747 /* AppDelegate.swift */; };
 		FEE548AB1BC225E100801747 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548AA1BC225E100801747 /* ViewController.swift */; };
 		FEE548AE1BC225E100801747 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE548AC1BC225E100801747 /* Main.storyboard */; };
@@ -35,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FE63AA771BE353B7003789A8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogecoinTracker.swift; sourceTree = "<group>"; };
+		FE63AA771BE353B7003789A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FEE548A51BC225E100801747 /* DogecoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogecoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE548A81BC225E100801747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEE548AA1BC225E100801747 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +109,8 @@
 				FEE548AF1BC225E100801747 /* Assets.xcassets */,
 				FEE548B11BC225E100801747 /* LaunchScreen.storyboard */,
 				FEE548B41BC225E100801747 /* Info.plist */,
-				FE63AA771BE353B7003789A8 /* Settings.swift */,
+				FE63AA771BE353B7003789A8 /* SettingsViewController.swift */,
+				FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */,
 			);
 			path = DogecoinTracker;
 			sourceTree = "<group>";
@@ -259,9 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE63AA781BE353B7003789A8 /* Settings.swift in Sources */,
+				FE63AA781BE353B7003789A8 /* SettingsViewController.swift in Sources */,
 				FEE548AB1BC225E100801747 /* ViewController.swift in Sources */,
 				FEE548A91BC225E100801747 /* AppDelegate.swift in Sources */,
+				FE146DBA1BEC3969009A9226 /* DogecoinTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE548BE1BC225E100801747 /* DogecoinTrackerTests.swift in Sources */,
+				FE146DBB1BEC3969009A9226 /* DogecoinTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE548C91BC225E100801747 /* DogecoinTrackerUITests.swift in Sources */,
+				FE146DBC1BEC3969009A9226 /* DogecoinTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

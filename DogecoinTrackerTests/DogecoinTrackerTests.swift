@@ -33,4 +33,27 @@ class DogecoinTrackerTests: XCTestCase {
         }
     }
     
+    // MARK: DogecoinTracker Tests
+    // Tests to confirm that the Dogecointracker initializer returns when no name or a negative rating is provided.
+    func testDogecoinTrackerInitialization() {
+        // Success case.
+        let potentialItem = DogecoinTracker(min: 1, max: 100, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle: 1)
+        XCTAssertNotNil(potentialItem)
+        
+        // Failure cases.
+        let bad1 = DogecoinTracker(min: -1, max: 100, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle: 1)
+        XCTAssertNil(bad1, "Min is below zero")
+        
+        let bad2 = DogecoinTracker(min: 1, max: 0, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle: 1)
+        XCTAssertNil(bad2, "Max is below min")
+
+        let bad3 = DogecoinTracker(min: 1, max: 100, URL: "", cycle: 1)
+        XCTAssertNil(bad3, "URL empty")
+        
+        let bad4 = DogecoinTracker(min: 1, max: 100, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle: 0)
+        XCTAssertNil(bad4, "Cycle cannot be be 0 or below")
+
+    }
+    
+    
 }
