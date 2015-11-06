@@ -14,19 +14,30 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var picker: UIPickerView!
     
-    var pickerData: [[String]] = [[String]]()
+    @IBOutlet weak var minlabel: UILabel!
+    @IBOutlet weak var maxlabel: UILabel!
+    @IBOutlet weak var minstepper: UIStepper!
+    @IBOutlet weak var maxstepper: UIStepper!
+    
+    @IBAction func minstepperchanged(sender: UIStepper) {
+        minlabel.text = Int(sender.value).description
+    }
+    @IBAction func maxstepperchanged(sender: UIStepper) {
+        maxlabel.text = Int(sender.value).description
+    }
+    var pickerData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // stepper
         
         // connect data:
         self.picker.delegate = self
         self.picker.dataSource = self
         
         // Input data into the Array:
-        pickerData = [["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-                    ["second", "minute", "hour"]]
+        pickerData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +47,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // The number of columns of data
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     
     // The number of rows of data
@@ -46,7 +57,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[component][row]
+        return pickerData[row]
     }
     
     // Catpure the picker view selection
