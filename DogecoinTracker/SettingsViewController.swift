@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     var pickerData: [String] = [String]()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         maxlabel.text = String(tracker!.getMax())
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
+        let cycle = Int(tracker!.getCycle())
+        self.picker.selectRow(cycle-1, inComponent: 0, animated: true)
+        
     }
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {
@@ -100,6 +102,5 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // The parameter named row and component represents what was selected.
 
     }
-
 
 }
