@@ -72,7 +72,7 @@ class DogecoinTracker {
             output = 0.0
         }
         else {
-            output = (CGFloat)((max - min) / min)
+            output = (CGFloat)((max - currentPrice) / min)
         }
     }
     
