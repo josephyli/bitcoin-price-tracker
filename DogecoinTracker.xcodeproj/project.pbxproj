@@ -40,9 +40,9 @@
 /* Begin PBXFileReference section */
 		FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogecoinTracker.swift; sourceTree = "<group>"; };
 		FE63AA771BE353B7003789A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		FEA730321BECB61F00FE6239 /* DogecoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DogecoinTracker.app; path = "/Users/josephli/Documents/Development/DogecoinTracker/build/Debug-iphoneos/DogecoinTracker.app"; sourceTree = "<absolute>"; };
-		FEA730331BECB61F00FE6239 /* DogecoinTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = DogecoinTrackerTests.xctest; path = "/Users/josephli/Documents/Development/DogecoinTracker/build/Debug-iphoneos/DogecoinTrackerTests.xctest"; sourceTree = "<absolute>"; };
-		FEA730341BECB61F00FE6239 /* DogecoinTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = DogecoinTrackerUITests.xctest; path = "/Users/josephli/Documents/Development/DogecoinTracker/build/Debug-iphoneos/DogecoinTrackerUITests.xctest"; sourceTree = "<absolute>"; };
+		FECF99981BED5695008E1062 /* DogecoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogecoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECF99991BED5695008E1062 /* DogecoinTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogecoinTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECF999A1BED5695008E1062 /* DogecoinTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogecoinTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE548A81BC225E100801747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEE548AA1BC225E100801747 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FEE548AD1BC225E100801747 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,12 +80,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FECF99D91BED9007008E1062 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FECF99981BED5695008E1062 /* DogecoinTracker.app */,
+				FECF99991BED5695008E1062 /* DogecoinTrackerTests.xctest */,
+				FECF999A1BED5695008E1062 /* DogecoinTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FEE5489C1BC225E100801747 = {
 			isa = PBXGroup;
 			children = (
 				FEE548A71BC225E100801747 /* DogecoinTracker */,
 				FEE548BC1BC225E100801747 /* DogecoinTrackerTests */,
 				FEE548C71BC225E100801747 /* DogecoinTrackerUITests */,
+				FECF99D91BED9007008E1062 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,7 +150,7 @@
 			);
 			name = DogecoinTracker;
 			productName = DogecoinTracker;
-			productReference = FEA730321BECB61F00FE6239 /* DogecoinTracker.app */;
+			productReference = FECF99981BED5695008E1062 /* DogecoinTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FEE548B81BC225E100801747 /* DogecoinTrackerTests */ = {
@@ -157,7 +168,7 @@
 			);
 			name = DogecoinTrackerTests;
 			productName = DogecoinTrackerTests;
-			productReference = FEA730331BECB61F00FE6239 /* DogecoinTrackerTests.xctest */;
+			productReference = FECF99991BED5695008E1062 /* DogecoinTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		FEE548C31BC225E100801747 /* DogecoinTrackerUITests */ = {
@@ -175,7 +186,7 @@
 			);
 			name = DogecoinTrackerUITests;
 			productName = DogecoinTrackerUITests;
-			productReference = FEA730341BECB61F00FE6239 /* DogecoinTrackerUITests.xctest */;
+			productReference = FECF999A1BED5695008E1062 /* DogecoinTrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
