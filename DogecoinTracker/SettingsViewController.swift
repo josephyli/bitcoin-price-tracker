@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     var pickerData: [String] = [String]()
-    var tracker: DogecoinTracker?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,16 +47,19 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {
-        if let _ = segue.destinationViewController as? ViewController {
+        if let toViewController = segue.destinationViewController as? ViewController {
             // Pull any data from the view controller which initiated the unwind segue.
             let max:Int? = Int(self.maxlabel.text!)
             let min:Int? = Int(self.minlabel.text!)
             let url = self.urlbox.text ?? ""
             print("URL is \(url)")
+            
+            // ??
             //            let cycle = pickerView(picker, didSelectRow: Int, inComponent: Int)
             
             // Set the dogecointracker to be passed to ViewController after the unwind segue.
-            tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: 2, price: 0.0)
+            let tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: 2)
+            toViewController.tracker = tracker
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -65,18 +68,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
-            let max:Int? = Int(self.maxlabel.text!)
-            let min:Int? = Int(self.minlabel.text!)
-            let url = self.urlbox.text ?? ""
-            print("URL is \(url)")
-//            let cycle = pickerView(picker, didSelectRow: Int, inComponent: Int)
-            
-            // Set the dogecointracker to be passed to ViewController after the unwind segue.
-            tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: 2, price: 0.0)
-        }
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
