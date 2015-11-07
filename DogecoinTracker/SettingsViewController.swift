@@ -46,6 +46,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Input data into the Array:
         pickerData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         minlabel.text = String(tracker!.getMin())
+        minstepper.value = Double(tracker!.getMin())
+        maxlabel.text = String(tracker!.getMax())
+        maxstepper.value = Double(tracker!.getMax())
+        urlbox.text = String(tracker!.getURL())
     }
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {

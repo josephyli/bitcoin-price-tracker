@@ -36,7 +36,7 @@ class DogecoinTracker {
         return min
     }
     func getMax() -> Int {
-        return min
+        return max
     }
     func getURL() -> String {
         return URL
