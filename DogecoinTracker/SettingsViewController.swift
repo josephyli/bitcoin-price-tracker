@@ -53,6 +53,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.picker.selectRow(cycle-1, inComponent: 0, animated: true)
         
     }
+    
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {
         if let toViewController = segue.destinationViewController as? ViewController {

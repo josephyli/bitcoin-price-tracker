@@ -15,9 +15,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tracker?.setCurrentPrice(250)
+        print(tracker!.currentPrice)
+        let colorHue = tracker!.getOutput() * 0.4
+        
         view.backgroundColor = UIColor(
-            hue: 0.0,       // 0.4 is green
-                            // 0.0 is red
+            // 0.4 is green, 0.0 is red
+            hue: CGFloat(colorHue),
             saturation: 0.3,
             brightness: 1.0,
             alpha: 1.0)

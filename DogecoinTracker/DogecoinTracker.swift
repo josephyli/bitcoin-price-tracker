@@ -44,9 +44,6 @@ class DogecoinTracker {
     func getCycle() -> Int {
         return cycle
     }
-    func getOutput() -> CGFloat {
-        return output
-    }
     
     func setMin(min: Int) {
         self.min = min
@@ -64,16 +61,20 @@ class DogecoinTracker {
         self.cycle = cycle
     }
     
-    func setOutput() {
+    func getOutput() -> Float {
         if currentPrice > max {
-            output = 0.4
+            return 0.4
         }
         else if currentPrice < min {
-            output = 0.0
+            return 0.0
         }
         else {
-            output = (CGFloat)((max - currentPrice) / min)
+            return ((Float(currentPrice) - Float(min)) / (Float(max) - Float(min)))
         }
+    }
+    
+    func setCurrentPrice(currentPrice: Int) {
+        self.currentPrice = currentPrice
     }
     
     func pullData() {
