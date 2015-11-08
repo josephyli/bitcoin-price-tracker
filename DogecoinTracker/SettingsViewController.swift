@@ -51,6 +51,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
     }
+    
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {
         if let toViewController = segue.destinationViewController as? ViewController {
