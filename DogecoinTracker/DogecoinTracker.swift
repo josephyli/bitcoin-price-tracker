@@ -76,14 +76,6 @@ class DogecoinTracker {
         }
     }
     
-    func getMin() -> Int {
-        return min
-    }
-    
-    func setCycle(cycle: Int) {
-        self.cycle = cycle
-    }
-    
     func pullData() {
         // Calls the network
     }
