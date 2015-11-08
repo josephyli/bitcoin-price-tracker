@@ -32,6 +32,38 @@ class DogecoinTracker {
         }
     }
     
+    func getMin() -> Int {
+        return min
+    }
+    func getMax() -> Int {
+        return min
+    }
+    func getURL() -> String {
+        return URL
+    }
+    func getCycle() -> Int {
+        return cycle
+    }
+    func getOutput() -> CGFloat {
+        return output
+    }
+    
+    func setMin(min: Int) {
+        self.min = min
+    }
+    
+    func setMax(max: Int) {
+        self.max = max
+    }
+    
+    func setURL(URL: String) {
+        self.URL = URL
+    }
+    
+    func setCycle(cycle: Int) {
+        self.cycle = cycle
+    }
+    
     func setOutput() {
         if currentPrice > max {
             output = 0.4
@@ -53,7 +85,7 @@ class DogecoinTracker {
     }
     
     func pullData() {
-        // to be done
+        // Calls the network
     }
     
     // Documentation for URL session (seems to be in Obj-C)
