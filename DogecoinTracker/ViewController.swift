@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var settingsButton: UIButton!
-    var tracker: DogecoinTracker?
+    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,14 @@ class ViewController: UIViewController {
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using [segue destinationViewController].
+        let navScene = segue.destinationViewController as! UINavigationController
+        let settingScene = navScene.viewControllers.first as! SettingsViewController
+        // Pass the selected object to the new view controller.
+        settingScene.tracker = tracker
+    }
 }
 

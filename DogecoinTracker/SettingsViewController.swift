@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // UIPicker code : http://codewithchris.com/uipickerview-example/
     
+    var tracker: DogecoinTracker?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -44,6 +45,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Input data into the Array:
         pickerData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        minlabel.text = String(tracker!.getMin())
     }
       // Mark Unwind Segues
     @IBAction func saveSettings(segue:UIStoryboardSegue) {
