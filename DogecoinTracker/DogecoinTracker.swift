@@ -79,7 +79,15 @@ class DogecoinTracker {
     
     func pullData() {
         // Calls the network
+        let nsurl = NSURL(string: URL)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(nsurl!) {
+            (info, response, error) in
+                print(NSString(data: info!, encoding: NSUTF8StringEncoding))
+        }
+        task.resume()
     }
+    
+
     
     // Documentation for URL session (seems to be in Obj-C)
     // https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i
