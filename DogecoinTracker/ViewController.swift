@@ -9,9 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:10)
     
     @IBOutlet weak var settingsButton: UIButton!
-    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:10)
+        let defaults = NSUserDefaults.standardUserDefaults()
+    
+    func getDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let min = defaults.stringArrayForKey("min")
+        if ((min) != nil) { // if not null then they all their settings should also be not null
+            let max = defaults.stringArrayForKey("max")
+            let url = defaults.stringArrayForKey("url")
+            let cycle = defaults.stringArrayForKey("cycle")
+            // Create new DogecoinTracker with saved settings
+        }
+    }
+    
+    @IBAction func saveButton(sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
