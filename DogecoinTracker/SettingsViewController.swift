@@ -68,6 +68,12 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             // Set the dogecointracker to be passed to ViewController after the unwind segue.
             let tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: 2)
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setValue(min, forKey: "min")
+            defaults.setValue(max, forKey: "max")
+            defaults.setValue(url, forKey: "url")
+            defaults.setValue(2, forKey: "cycle")
+            defaults.synchronize()
             toViewController.tracker = tracker
         }
         dismissViewControllerAnimated(true, completion: nil)
