@@ -224,27 +224,26 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="STS-xR-Eky">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="UNc-wN-bQy"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UaU-Cp-p6o">
+                        <barButtonItem key="leftBarButtonItem" tag="2" systemItem="cancel" id="OVy-T6-W5V" userLabel="Cancel">
                             <connections>
-                                <action selector="unwindToViewController:" destination="tsV-Ja-ixV" id="ZPi-0a-T0L"/>
-                                <segue destination="fgO-HA-zCu" kind="unwind" unwindAction="unwindToViewController:" id="Uoc-4p-q0k"/>
+                                <segue destination="fgO-HA-zCu" kind="unwind" unwindAction="unwindToViewController:" id="jDW-MB-ihE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ktR-oT-5ek">
+                        <barButtonItem key="rightBarButtonItem" tag="1" systemItem="save" id="UaU-Cp-p6o" userLabel="Save">
                             <connections>
-                                <action selector="saveSettings:" destination="tsV-Ja-ixV" id="M8F-sG-oz7"/>
+                                <action selector="unwindToViewController:" destination="tsV-Ja-ixV" id="ZPi-0a-T0L"/>
+                                <segue destination="fgO-HA-zCu" kind="unwind" unwindAction="unwindToViewController:" id="zwY-3p-jDe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="UaU-Cp-p6o" id="GQ7-cd-fag"/>
+                        <outlet property="cancelButton" destination="OVy-T6-W5V" id="uFK-iL-eil"/>
                         <outlet property="maxlabel" destination="Brh-rE-2CN" id="TLV-SX-9Op"/>
                         <outlet property="maxstepper" destination="0bg-dW-unz" id="YoD-e4-ZdT"/>
                         <outlet property="minlabel" destination="WhD-Nz-0l6" id="okh-Zv-dPb"/>
                         <outlet property="minstepper" destination="Eae-kf-mZW" id="FFs-da-iHI"/>
                         <outlet property="picker" destination="Cdi-dU-JcV" id="J1J-hA-2zk"/>
-                        <outlet property="saveButton" destination="ktR-oT-5ek" id="ROl-sB-hN2"/>
+                        <outlet property="saveButton" destination="UaU-Cp-p6o" id="aoR-ht-Hcg"/>
                         <outlet property="urlbox" destination="eGD-Z0-xR4" id="ZEi-EM-bkB"/>
                     </connections>
                 </viewController>

@@ -195,6 +195,9 @@
 		FEE5489D1BC225E100801747 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Cancel,
+				);
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Myzithra;
 				TargetAttributes = {

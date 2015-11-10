@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:1)
+    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
     
     @IBOutlet weak var settingsButton: UIButton!
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -27,8 +27,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tracker?.setCurrentPrice(250)
-        print(tracker!.currentPrice)
+        print ("Max is \(tracker!.getMax())")
+        print ("Min is \(tracker!.getMin())")
+        print ("Cycle is \(tracker!.getCycle())")
         countdown()
         setColor()
     }
@@ -57,6 +58,7 @@ class ViewController: UIViewController {
         let random = arc4random_uniform(dif) + UInt32(tracker!.min) + 1
         tracker?.setCurrentPrice(Int(random))
         print("Current price is \(tracker!.currentPrice)")
+        print("Cycle is \(tracker!.cycle)")
         setColor()
     }
     
@@ -71,7 +73,7 @@ class ViewController: UIViewController {
             // 0.4 is green, 0.0 is red
             hue: CGFloat(colorHue),
             saturation: 0.3,
-            brightness: 1.0,
+            brightness: 0.9,
             alpha: 1.0)
     }
 }

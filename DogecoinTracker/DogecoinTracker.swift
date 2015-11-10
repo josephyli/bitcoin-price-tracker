@@ -26,6 +26,7 @@ class DogecoinTracker {
         self.cycle = cycle
         self.output = 0.4
         self.currentPrice = 350
+        getOutput()
         
         if URL.isEmpty || min < 0 || min > max || cycle <= 0 {
             return nil

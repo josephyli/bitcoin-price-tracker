@@ -34,31 +34,41 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // stepper
-        
-//        // picker connect data:
-//        self.picker.delegate = self
-//        self.picker.dataSource = self
-        
-        // Input data into the Array:
-        pickerData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         minlabel.text = String(tracker!.getMin())
         minstepper.value = Double(tracker!.getMin())
         maxlabel.text = String(tracker!.getMax())
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
-//        self.picker.selectRow(cycle-1, inComponent: 0, animated: true)
         picker.text = String(Int(tracker!.getCycle()))
         
     }
     
       // Mark Unwind Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        let toViewController = segue.destinationViewController as! ViewController
-        // Pass the selected object to the new view controller.
-        toViewController.tracker = tracker!
+        // save button is tagged 1
+        // cancel button is tagged 2
+        if (sender!.tag==1) {
+            // Get the new view controller using [segue destinationViewController].
+            let toViewController = segue.destinationViewController as! ViewController
+            let max:Int? = Int(self.maxlabel.text!)
+            let min:Int? = Int(self.minlabel.text!)
+            let url = self.urlbox.text ?? ""
+            let cycle:Int = Int(picker.text!)!
+            tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setValue(min, forKey: "min")
+            defaults.setValue(max, forKey: "max")
+            defaults.setValue(url, forKey: "url")
+            defaults.setValue(cycle, forKey: "cycle")
+            defaults.synchronize()
+            toViewController.tracker = tracker!
+            
+            // Pass the selected object to the new view controller.
+            toViewController.tracker = tracker!
+            
+        }
+        print("Cycle is \(tracker!.cycle)")
     }
 
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
@@ -66,17 +76,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     
-    @IBAction func saveSettings(sender: AnyObject) {
-        let max:Int? = Int(self.maxlabel.text!)
-        let min:Int? = Int(self.minlabel.text!)
-        let url = self.urlbox.text ?? ""
-        print("URL is \(url)")
-        let cycle:Int = Int(picker.text!)!
-        print("Cycle is \(cycle)")
-        tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
-        dismissViewControllerAnimated(true, completion: nil)
-        
-    }
     @IBAction func saveSettings(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let toViewController = segue.destinationViewController as? ViewController {
             // Pull any data from the view controller which initiated the unwind segue.
@@ -93,7 +92,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             defaults.setValue(min, forKey: "min")
             defaults.setValue(max, forKey: "max")
             defaults.setValue(url, forKey: "url")
-            defaults.setValue(2, forKey: "cycle")
+            defaults.setValue(cycle, forKey: "cycle")
             defaults.synchronize()
             toViewController.tracker = tracker!
         }
