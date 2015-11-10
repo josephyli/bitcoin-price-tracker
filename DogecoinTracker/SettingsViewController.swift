@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class SettingsViewController: UIViewController  {
     
     var tracker: DogecoinTracker?
     
@@ -76,54 +76,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     
-    @IBAction func saveSettings(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let toViewController = segue.destinationViewController as? ViewController {
-            // Pull any data from the view controller which initiated the unwind segue.
-            let max:Int? = Int(self.maxlabel.text!)
-            let min:Int? = Int(self.minlabel.text!)
-            let url = self.urlbox.text ?? ""
-            print("URL is \(url)")
-            let cycle:Int = Int(picker.text!)!
-            print("Cycle is \(cycle)")
-
-            // Set the dogecointracker to be passed to ViewController after the unwind segue.
-            let tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setValue(min, forKey: "min")
-            defaults.setValue(max, forKey: "max")
-            defaults.setValue(url, forKey: "url")
-            defaults.setValue(cycle, forKey: "cycle")
-            defaults.synchronize()
-            toViewController.tracker = tracker!
-        }
-        dismissViewControllerAnimated(true, completion: nil)
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    // Catpure the picker view selection
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
-        tracker?.setCycle(row)
-        print("Cycle is \(row)")
-    }
-
 }

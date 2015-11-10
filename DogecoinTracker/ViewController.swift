@@ -63,7 +63,8 @@ class ViewController: UIViewController {
     }
     
     func countdown() {
-        var timer = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "randomPrice", userInfo: nil, repeats: true)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
+        randomPrice()
     }
     
     func setColor() {
