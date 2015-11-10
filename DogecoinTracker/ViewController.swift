@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
         countdown()
-        setColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +56,11 @@ class ViewController: UIViewController {
     
     // MARK - Supporting methods
 
-    // using this until network call works
+    // Sets the current price to a random number... temporary testing measure until network call works!
     func randomPrice() {
         let dif = UInt32((tracker!.max - tracker!.min))
-        let random = arc4random_uniform(dif + 20) + UInt32(tracker!.min) + 1
+        let mid = UInt32((tracker!.max + tracker!.min)/2)
+        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
         tracker?.setCurrentPrice(Int(random))
         print("Current price is \(tracker!.currentPrice)")
         setColor()
@@ -69,10 +69,11 @@ class ViewController: UIViewController {
             playAlert("SecondBeep")
         }
         else if (tracker!.currentPrice <= tracker!.min) {
-            playAlert("clickon")
+            playAlert("ButtonTap")
         }
     }
     
+    // Takes a sound file's filename as a String and plays the sound
     func playAlert(filename: String) {
         do {
             //keep alive audio at background
