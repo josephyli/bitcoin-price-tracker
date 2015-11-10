@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:10)
+    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:1)
     
     @IBOutlet weak var settingsButton: UIButton!
-        let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     func getDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -25,22 +25,12 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func saveButton(sender: UIButton) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tracker?.setCurrentPrice(250)
         print(tracker!.currentPrice)
-        let colorHue = tracker!.getOutput() * 0.4
-        
-        view.backgroundColor = UIColor(
-            // 0.4 is green, 0.0 is red
-            hue: CGFloat(colorHue),
-            saturation: 0.3,
-            brightness: 1.0,
-            alpha: 1.0)
+        countdown()
+        setColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +49,30 @@ class ViewController: UIViewController {
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
         settingScene.tracker = tracker
+    }
+    
+    // MARK - Supporting methods
+    func randomPrice() {
+        let dif = UInt32((tracker!.max - tracker!.min))
+        let random = arc4random_uniform(dif) + UInt32(tracker!.min) + 1
+        tracker?.setCurrentPrice(Int(random))
+        print("Current price is \(tracker!.currentPrice)")
+        setColor()
+    }
+    
+    func countdown() {
+        var timer = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "randomPrice", userInfo: nil, repeats: true)
+    }
+    
+    func setColor() {
+        let colorHue = tracker!.getOutput() * 0.4
+        
+        view.backgroundColor = UIColor(
+            // 0.4 is green, 0.0 is red
+            hue: CGFloat(colorHue),
+            saturation: 0.3,
+            brightness: 1.0,
+            alpha: 1.0)
     }
 }
 
