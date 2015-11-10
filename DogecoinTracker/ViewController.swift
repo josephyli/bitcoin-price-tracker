@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+    var soundPlayer: AVPlayer!
     
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     
     func getDefaults() {
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -53,17 +56,48 @@ class ViewController: UIViewController {
     }
     
     // MARK - Supporting methods
+
+    // using this until network call works
     func randomPrice() {
         let dif = UInt32((tracker!.max - tracker!.min))
-        let random = arc4random_uniform(dif) + UInt32(tracker!.min) + 1
+        let random = arc4random_uniform(dif + 20) + UInt32(tracker!.min) + 1
         tracker?.setCurrentPrice(Int(random))
         print("Current price is \(tracker!.currentPrice)")
-        print("Cycle is \(tracker!.cycle)")
         setColor()
+        print("Output is \(tracker!.getOutput() * 0.4)")
+        if (tracker!.currentPrice >= tracker!.max) {
+            playAlert("SecondBeep")
+        }
+        else if (tracker!.currentPrice <= tracker!.min) {
+            playAlert("clickon")
+        }
     }
     
+    func playAlert(filename: String) {
+        do {
+            //keep alive audio at background
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+        }
+        // play alert if needed
+        let audioFilePath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(filename, ofType: "wav")!)
+        // sound alert
+        do {
+            soundPlayer = try AVPlayer(URL: audioFilePath)
+            soundPlayer.play()
+        } catch {
+            print("Error getting the audio file")
+        }
+
+    }
+    
+    
     func countdown() {
-        var timer = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
+        _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
         randomPrice()
     }
     
@@ -73,8 +107,8 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(
             // 0.4 is green, 0.0 is red
             hue: CGFloat(colorHue),
-            saturation: 0.3,
-            brightness: 0.9,
+            saturation: 0.35,
+            brightness: 0.90,
             alpha: 1.0)
     }
 }

@@ -10,6 +10,9 @@
 		FE146DBA1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
 		FE146DBB1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
 		FE146DBC1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
+		FE2EF9B01BF2283900A0B62E /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9AE1BF2283900A0B62E /* ButtonTap.wav */; };
+		FE2EF9B11BF2283900A0B62E /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9AF1BF2283900A0B62E /* SecondBeep.wav */; };
+		FE2EF9B41BF235C200A0B62E /* clickon.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9B31BF235C200A0B62E /* clickon.wav */; };
 		FE63AA781BE353B7003789A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63AA771BE353B7003789A8 /* SettingsViewController.swift */; };
 		FEE548A91BC225E100801747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548A81BC225E100801747 /* AppDelegate.swift */; };
 		FEE548AB1BC225E100801747 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE548AA1BC225E100801747 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogecoinTracker.swift; sourceTree = "<group>"; };
+		FE2EF9AE1BF2283900A0B62E /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonTap.wav; sourceTree = "<group>"; };
+		FE2EF9AF1BF2283900A0B62E /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SecondBeep.wav; sourceTree = "<group>"; };
+		FE2EF9B31BF235C200A0B62E /* clickon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickon.wav; path = DogecoinTracker/clickon.wav; sourceTree = "<group>"; };
 		FE63AA771BE353B7003789A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FECF99981BED5695008E1062 /* DogecoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogecoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECF99991BED5695008E1062 /* DogecoinTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogecoinTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +86,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE2EF9B21BF2284900A0B62E /* Sound files */ = {
+			isa = PBXGroup;
+			children = (
+				FE2EF9B31BF235C200A0B62E /* clickon.wav */,
+				FE2EF9AE1BF2283900A0B62E /* ButtonTap.wav */,
+				FE2EF9AF1BF2283900A0B62E /* SecondBeep.wav */,
+			);
+			name = "Sound files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		FECF99D91BED9007008E1062 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +128,7 @@
 				FEE548AF1BC225E100801747 /* Assets.xcassets */,
 				FEE548B11BC225E100801747 /* LaunchScreen.storyboard */,
 				FEE548B41BC225E100801747 /* Info.plist */,
+				FE2EF9B21BF2284900A0B62E /* Sound files */,
 			);
 			path = DogecoinTracker;
 			sourceTree = "<group>";
@@ -241,7 +259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE548B31BC225E100801747 /* LaunchScreen.storyboard in Resources */,
+				FE2EF9B11BF2283900A0B62E /* SecondBeep.wav in Resources */,
+				FE2EF9B41BF235C200A0B62E /* clickon.wav in Resources */,
 				FEE548B01BC225E100801747 /* Assets.xcassets in Resources */,
+				FE2EF9B01BF2283900A0B62E /* ButtonTap.wav in Resources */,
 				FEE548AE1BC225E100801747 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
