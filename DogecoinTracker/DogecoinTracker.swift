@@ -62,6 +62,10 @@ class DogecoinTracker {
         self.cycle = cycle
     }
     
+    /*
+    * Range [0.0, 0.4]
+    * 0.0 is green, 0.4 is red
+    */
     func getOutput() -> Float {
         if currentPrice > max {
             return 0.4

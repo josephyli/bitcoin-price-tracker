@@ -103,14 +103,17 @@ class ViewController: UIViewController {
     }
     
     func setColor() {
-        let colorHue = tracker!.getOutput() * 0.4
+        let colorHue = tracker!.getOutput()
+        // Lerp color for smooth color transition
+        // let previousColor = 
+        // loop to setthe background between previousColor until the new float color colorHue
         
         view.backgroundColor = UIColor(
-            // 0.4 is green, 0.0 is red
             hue: CGFloat(colorHue),
             saturation: 0.35,
             brightness: 0.90,
             alpha: 1.0)
     }
+    
 }
 
