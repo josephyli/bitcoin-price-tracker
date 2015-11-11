@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -169,17 +169,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-su-9H6">
-                                <rect key="frame" x="152" y="115" width="112" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIx-KE-ZqZ">
+                                <rect key="frame" x="253" y="137" width="94" height="22"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="gpy-0r-9jd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="350" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIx-KE-ZqZ">
-                                <rect key="frame" x="161" y="136" width="94" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last pulled price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-su-9H6">
+                                <rect key="frame" x="253" y="115" width="94" height="15"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -187,6 +190,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gIx-KE-ZqZ" firstAttribute="top" secondItem="SRD-gJ-de9" secondAttribute="bottom" constant="73" id="5QT-gh-oy3"/>
                             <constraint firstItem="WhD-Nz-0l6" firstAttribute="top" secondItem="Eae-kf-mZW" secondAttribute="bottom" constant="8" id="6et-cu-Zb2"/>
                             <constraint firstItem="taR-WU-ldG" firstAttribute="leading" secondItem="Hw1-DF-kvV" secondAttribute="leading" id="6vl-m8-HNz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="amX-uU-Gak" secondAttribute="trailing" constant="-5" id="7TN-Xh-RhL"/>
@@ -195,6 +199,7 @@
                             <constraint firstItem="eGD-Z0-xR4" firstAttribute="top" secondItem="taR-WU-ldG" secondAttribute="bottom" constant="66" id="Css-eM-A03"/>
                             <constraint firstItem="Eae-kf-mZW" firstAttribute="top" secondItem="WhD-Nz-0l6" secondAttribute="bottom" id="D7Z-fg-wJQ"/>
                             <constraint firstItem="0bg-dW-unz" firstAttribute="trailing" secondItem="Brh-rE-2CN" secondAttribute="trailing" id="DDS-Qx-Rhh"/>
+                            <constraint firstItem="Ku0-su-9H6" firstAttribute="top" secondItem="SRD-gJ-de9" secondAttribute="bottom" constant="51" id="DWG-u1-KLZ"/>
                             <constraint firstItem="WhD-Nz-0l6" firstAttribute="leading" secondItem="BJe-CF-Lcx" secondAttribute="leadingMargin" constant="3" id="Dzv-Ia-PLK"/>
                             <constraint firstItem="Eae-kf-mZW" firstAttribute="top" secondItem="0bg-dW-unz" secondAttribute="top" id="FZG-85-Js8"/>
                             <constraint firstItem="Eae-kf-mZW" firstAttribute="top" secondItem="WhD-Nz-0l6" secondAttribute="bottom" constant="8" symbolic="YES" id="H7x-Tb-IIm"/>
@@ -220,6 +225,7 @@
                             <constraint firstItem="WhD-Nz-0l6" firstAttribute="leading" secondItem="Eae-kf-mZW" secondAttribute="leading" id="gON-tf-YD0"/>
                             <constraint firstItem="amX-uU-Gak" firstAttribute="top" secondItem="SRD-gJ-de9" secondAttribute="bottom" constant="51" id="iBg-fW-bps"/>
                             <constraint firstItem="cj1-oh-I4d" firstAttribute="leading" secondItem="BJe-CF-Lcx" secondAttribute="leading" constant="231" id="jig-i1-Exb"/>
+                            <constraint firstItem="gIx-KE-ZqZ" firstAttribute="centerX" secondItem="BJe-CF-Lcx" secondAttribute="centerX" id="kQY-jx-YdA"/>
                             <constraint firstItem="Cdi-dU-JcV" firstAttribute="top" secondItem="Eae-kf-mZW" secondAttribute="bottom" constant="150" id="kqZ-mk-SvX"/>
                             <constraint firstItem="0bg-dW-unz" firstAttribute="top" secondItem="amX-uU-Gak" secondAttribute="bottom" constant="22" id="l6m-Mu-rae"/>
                             <constraint firstItem="eGD-Z0-xR4" firstAttribute="trailing" secondItem="BJe-CF-Lcx" secondAttribute="trailingMargin" id="lEi-Sw-cyT"/>
@@ -230,6 +236,7 @@
                             <constraint firstItem="Cdi-dU-JcV" firstAttribute="leading" secondItem="taR-WU-ldG" secondAttribute="trailing" constant="8" symbolic="YES" id="oiG-Fa-EMf"/>
                             <constraint firstItem="eGD-Z0-xR4" firstAttribute="leading" secondItem="Hw1-DF-kvV" secondAttribute="trailing" constant="8" symbolic="YES" id="p1Z-NU-DWC"/>
                             <constraint firstItem="WhD-Nz-0l6" firstAttribute="top" secondItem="e2M-1j-1Iq" secondAttribute="bottom" constant="1" id="q1F-f0-KCg"/>
+                            <constraint firstItem="Ku0-su-9H6" firstAttribute="centerX" secondItem="gIx-KE-ZqZ" secondAttribute="centerX" id="yYa-1Y-wSl"/>
                             <constraint firstItem="Cdi-dU-JcV" firstAttribute="centerY" secondItem="cj1-oh-I4d" secondAttribute="centerY" id="yve-fV-bBP"/>
                         </constraints>
                         <variation key="default">
@@ -261,6 +268,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="OVy-T6-W5V" id="uFK-iL-eil"/>
+                        <outlet property="currentPriceLabel" destination="gIx-KE-ZqZ" id="ROn-fi-LOz"/>
                         <outlet property="maxlabel" destination="Brh-rE-2CN" id="TLV-SX-9Op"/>
                         <outlet property="maxstepper" destination="0bg-dW-unz" id="YoD-e4-ZdT"/>
                         <outlet property="minlabel" destination="WhD-Nz-0l6" id="okh-Zv-dPb"/>

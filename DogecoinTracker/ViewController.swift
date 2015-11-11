@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 300, max: 340, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+    var tracker = DogecoinTracker(min: 316, max: 319, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        prepareToPullData()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -55,24 +55,6 @@ class ViewController: UIViewController {
     }
     
     // MARK - Supporting methods
-
-//    // Sets the current price to a random number... temporary testing measure until network call works!
-//    func updatePrice() {
-////        let dif = UInt32((tracker!.max - tracker!.min))
-////        let mid = UInt32((tracker!.max + tracker!.min)/2)
-////        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
-//        var actualPrice: Int
-//        tracker?.setCurrentPrice(Int(actualPrice))
-//        print("Current price is \(tracker!.currentPrice)")
-//        setColor()
-//        print("Output is \(tracker!.getOutput())")
-//        if (tracker!.currentPrice >= tracker!.max) {
-//            playAlert("SecondBeep")
-//        }
-//        else if (tracker!.currentPrice <= tracker!.min) {
-//            playAlert("ButtonTap")
-//        }
-//    }
     
     // Takes a sound file's filename as a String and plays the sound
     func playAlert(filename: String) {
@@ -99,22 +81,16 @@ class ViewController: UIViewController {
     
     func countdown() {
         _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
-        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
-        tracker!.pullData(request){
-            (data, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                print(data)
-            }
-        }
+
+        prepareToPullData()
         print("Current price is \(tracker!.currentPrice)")
+        
         setColor()
         print("Output is \(tracker!.getOutput())")
-        if (tracker!.currentPrice >= tracker!.max) {
+        if (tracker!.currentPrice > tracker!.max) {
             playAlert("SecondBeep")
         }
-        else if (tracker!.currentPrice <= tracker!.min) {
+        else if (tracker!.currentPrice < tracker!.min) {
             playAlert("ButtonTap")
         }
 
@@ -128,10 +104,21 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
-            saturation: 0.35,
-            brightness: 0.90,
+            saturation: 0.5,
+            brightness: 1.0,
             alpha: 1.0)
     }
     
+    func prepareToPullData() {
+        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
+        tracker!.pullData(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print(data)
+            }
+        }
+    }
 }
 

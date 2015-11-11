@@ -10,6 +10,7 @@
 		FE146DBA1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
 		FE146DBB1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
 		FE146DBC1BEC3969009A9226 /* DogecoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */; };
+		FE211E301BF361B000F929CC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE211E2F1BF361B000F929CC /* Default-568h@2x.png */; };
 		FE2EF9B01BF2283900A0B62E /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9AE1BF2283900A0B62E /* ButtonTap.wav */; };
 		FE2EF9B11BF2283900A0B62E /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9AF1BF2283900A0B62E /* SecondBeep.wav */; };
 		FE2EF9B41BF235C200A0B62E /* clickon.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE2EF9B31BF235C200A0B62E /* clickon.wav */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		FE146DB91BEC3969009A9226 /* DogecoinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogecoinTracker.swift; sourceTree = "<group>"; };
+		FE211E2F1BF361B000F929CC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FE2EF9AE1BF2283900A0B62E /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonTap.wav; sourceTree = "<group>"; };
 		FE2EF9AF1BF2283900A0B62E /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SecondBeep.wav; sourceTree = "<group>"; };
 		FE2EF9B31BF235C200A0B62E /* clickon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickon.wav; path = DogecoinTracker/clickon.wav; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		FEE5489C1BC225E100801747 = {
 			isa = PBXGroup;
 			children = (
+				FE211E2F1BF361B000F929CC /* Default-568h@2x.png */,
 				FEE548A71BC225E100801747 /* DogecoinTracker */,
 				FEE548BC1BC225E100801747 /* DogecoinTrackerTests */,
 				FEE548C71BC225E100801747 /* DogecoinTrackerUITests */,
@@ -263,6 +266,7 @@
 				FE2EF9B41BF235C200A0B62E /* clickon.wav in Resources */,
 				FEE548B01BC225E100801747 /* Assets.xcassets in Resources */,
 				FE2EF9B01BF2283900A0B62E /* ButtonTap.wav in Resources */,
+				FE211E301BF361B000F929CC /* Default-568h@2x.png in Resources */,
 				FEE548AE1BC225E100801747 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

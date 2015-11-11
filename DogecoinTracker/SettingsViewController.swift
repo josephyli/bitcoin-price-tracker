@@ -14,13 +14,12 @@ class SettingsViewController: UIViewController  {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-//    @IBOutlet weak var picker: UIPickerView!
-    
     @IBOutlet weak var picker: UITextField!
     @IBOutlet weak var minlabel: UILabel!
     @IBOutlet weak var maxlabel: UILabel!
     @IBOutlet weak var minstepper: UIStepper!
     @IBOutlet weak var maxstepper: UIStepper!
+    @IBOutlet weak var currentPriceLabel: UILabel!
 
     @IBOutlet weak var urlbox: UITextField!
     @IBAction func minstepperchanged(sender: UIStepper) {
@@ -40,6 +39,7 @@ class SettingsViewController: UIViewController  {
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
         picker.text = String(Int(tracker!.getCycle()))
+        currentPriceLabel.text = String(tracker!.currentPrice)
         
     }
     
@@ -68,7 +68,6 @@ class SettingsViewController: UIViewController  {
             toViewController.tracker = tracker!
             
         }
-        print("Cycle is \(tracker!.cycle)")
     }
 
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
