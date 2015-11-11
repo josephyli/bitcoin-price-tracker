@@ -68,7 +68,7 @@ class DogecoinTracker {
     */
     func getOutput() -> Float {
         if currentPrice > max {
-            return 1.0
+            return 0.4
         }
         else if currentPrice < min {
             return 0.0
