@@ -99,7 +99,25 @@ class ViewController: UIViewController {
     
     func countdown() {
         _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
-        randomPrice()
+        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
+        tracker!.pullData(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print(data)
+            }
+        }
+        print("Current price is \(tracker!.currentPrice)")
+        setColor()
+        print("Output is \(tracker!.getOutput())")
+        if (tracker!.currentPrice >= tracker!.max) {
+            playAlert("SecondBeep")
+        }
+        else if (tracker!.currentPrice <= tracker!.min) {
+            playAlert("ButtonTap")
+        }
+
     }
     
     func setColor() {
