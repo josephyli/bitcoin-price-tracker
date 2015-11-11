@@ -57,11 +57,13 @@ class ViewController: UIViewController {
     // MARK - Supporting methods
 
     // Sets the current price to a random number... temporary testing measure until network call works!
-    func randomPrice() {
-        let dif = UInt32((tracker!.max - tracker!.min))
-        let mid = UInt32((tracker!.max + tracker!.min)/2)
-        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
-        tracker?.setCurrentPrice(Int(random))
+    func updatePrice() {
+//        let dif = UInt32((tracker!.max - tracker!.min))
+//        let mid = UInt32((tracker!.max + tracker!.min)/2)
+//        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
+        var actualPrice: Int
+        actualPrice = pullData()
+        tracker?.setCurrentPrice(Int(actualPrice))
         print("Current price is \(tracker!.currentPrice)")
         setColor()
         print("Output is \(tracker!.getOutput() * 0.4)")
@@ -96,10 +98,27 @@ class ViewController: UIViewController {
 
     }
     
-    
     func countdown() {
         _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
-        randomPrice()
+        updatePrice()
+    }
+    
+    func pullData() -> Int {
+        
+        let myURLString = tracker!.getURL()
+        var price: Int = 0
+        
+        if let myURL = NSURL(string: myURLString) {
+            let myHTML = NSData(contentsOfURL:myURL)
+            let dataString = String(data: myHTML!, encoding: NSUTF8StringEncoding)
+            print(dataString)
+            let myDouble = Float(dataString!)
+            price = Int(myDouble!)
+            
+        } else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+        }
+        return price
     }
     
     func setColor() {

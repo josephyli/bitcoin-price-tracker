@@ -64,7 +64,7 @@ class DogecoinTracker {
     
     func getOutput() -> Float {
         if currentPrice > max {
-            return 0.4
+            return 1.0
         }
         else if currentPrice < min {
             return 0.0
@@ -78,15 +78,7 @@ class DogecoinTracker {
         self.currentPrice = currentPrice
     }
     
-    func pullData() {
-        // Calls the network
-        let nsurl = NSURL(string: URL)
-        let task = NSURLSession.sharedSession().dataTaskWithURL(nsurl!) {
-            (info, response, error) in
-                print(NSString(data: info!, encoding: NSUTF8StringEncoding))
-        }
-        task.resume()
-    }
+
     
 
     
