@@ -70,7 +70,7 @@ class DogecoinTracker {
             return 0.0
         }
         else {
-            return ((Float(currentPrice) - Float(min)) / (Float(max) - Float(min)))
+            return ((Float(currentPrice) - Float(min)) / (Float(max) - Float(min))) * 0.4
         }
     }
     

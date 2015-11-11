@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         tracker?.setCurrentPrice(Int(random))
         print("Current price is \(tracker!.currentPrice)")
         setColor()
-        print("Output is \(tracker!.getOutput() * 0.4)")
+        print("Output is \(tracker!.getOutput())")
         if (tracker!.currentPrice >= tracker!.max) {
             playAlert("SecondBeep")
         }
