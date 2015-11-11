@@ -33,14 +33,13 @@ class SettingsViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentPriceLabel.text = String(tracker!.currentPrice)
         minlabel.text = String(tracker!.getMin())
         minstepper.value = Double(tracker!.getMin())
         maxlabel.text = String(tracker!.getMax())
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
         picker.text = String(Int(tracker!.getCycle()))
-        currentPriceLabel.text = String(tracker!.currentPrice)
-        
     }
     
       // Mark Unwind Segues
@@ -54,19 +53,26 @@ class SettingsViewController: UIViewController  {
             let min:Int? = Int(self.minlabel.text!)
             let url = self.urlbox.text ?? ""
             let cycle:Int = Int(picker.text!)!
-            tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
+            if (tracker?.currentPrice < min || tracker?.currentPrice > max) {
+                var alert = UIAlertView()
+                alert.title = "Settings Error"
+                alert.message = "Please input valid min / max."
+                alert.addButtonWithTitle("Okay")
+                alert.show()
+            } else {
+                tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
             
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setValue(min, forKey: "min")
-            defaults.setValue(max, forKey: "max")
-            defaults.setValue(url, forKey: "url")
-            defaults.setValue(cycle, forKey: "cycle")
-            defaults.synchronize()
-            toViewController.tracker = tracker!
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setValue(min, forKey: "min")
+                defaults.setValue(max, forKey: "max")
+                defaults.setValue(url, forKey: "url")
+                defaults.setValue(cycle, forKey: "cycle")
+                defaults.synchronize()
+                toViewController.tracker = tracker!
             
-            // Pass the selected object to the new view controller.
-            toViewController.tracker = tracker!
-            
+                // Pass the selected object to the new view controller.
+                toViewController.tracker = tracker!
+            }
         }
     }
 
