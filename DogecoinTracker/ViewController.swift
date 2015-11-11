@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 200, max: 300, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+    var tracker = DogecoinTracker(min: 300, max: 340, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -56,24 +56,23 @@ class ViewController: UIViewController {
     
     // MARK - Supporting methods
 
-    // Sets the current price to a random number... temporary testing measure until network call works!
-    func updatePrice() {
-//        let dif = UInt32((tracker!.max - tracker!.min))
-//        let mid = UInt32((tracker!.max + tracker!.min)/2)
-//        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
-        var actualPrice: Int
-        actualPrice = pullData()
-        tracker?.setCurrentPrice(Int(actualPrice))
-        print("Current price is \(tracker!.currentPrice)")
-        setColor()
-        print("Output is \(tracker!.getOutput())")
-        if (tracker!.currentPrice >= tracker!.max) {
-            playAlert("SecondBeep")
-        }
-        else if (tracker!.currentPrice <= tracker!.min) {
-            playAlert("ButtonTap")
-        }
-    }
+//    // Sets the current price to a random number... temporary testing measure until network call works!
+//    func updatePrice() {
+////        let dif = UInt32((tracker!.max - tracker!.min))
+////        let mid = UInt32((tracker!.max + tracker!.min)/2)
+////        let random = arc4random_uniform(2 * dif) + UInt32(mid) - dif
+//        var actualPrice: Int
+//        tracker?.setCurrentPrice(Int(actualPrice))
+//        print("Current price is \(tracker!.currentPrice)")
+//        setColor()
+//        print("Output is \(tracker!.getOutput())")
+//        if (tracker!.currentPrice >= tracker!.max) {
+//            playAlert("SecondBeep")
+//        }
+//        else if (tracker!.currentPrice <= tracker!.min) {
+//            playAlert("ButtonTap")
+//        }
+//    }
     
     // Takes a sound file's filename as a String and plays the sound
     func playAlert(filename: String) {
