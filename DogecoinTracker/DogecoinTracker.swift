@@ -82,6 +82,17 @@ class DogecoinTracker {
         self.currentPrice = currentPrice
     }
     
+    func prepareToPullData() {
+        let request = NSMutableURLRequest(URL: NSURL(string: URL)!)
+        pullData(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print(data)
+            }
+        }
+    }
     func pullData(request: NSURLRequest!, callback: (String, String?) -> Void) {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request){

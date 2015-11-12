@@ -62,11 +62,10 @@ class SettingsViewController: UIViewController  {
             defaults.setValue(url, forKey: "url")
             defaults.setValue(cycle, forKey: "cycle")
             defaults.synchronize()
-            toViewController.tracker = tracker!
             
             // Pass the selected object to the new view controller.
-            toViewController.tracker = tracker!
-            
+            tracker!.prepareToPullData()
+            toViewController.tracker = tracker!            
         }
     }
 

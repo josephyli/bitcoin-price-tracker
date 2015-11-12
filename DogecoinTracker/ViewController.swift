@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 316, max: 319, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+    var tracker = DogecoinTracker(min: 315, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareToPullData()
+        tracker!.prepareToPullData()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
+        tracker!.prepareToPullData()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         let navScene = segue.destinationViewController as! UINavigationController
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
+        tracker!.prepareToPullData()
         settingScene.tracker = tracker
     }
     
@@ -82,7 +84,7 @@ class ViewController: UIViewController {
     func countdown() {
         _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
 
-        prepareToPullData()
+        tracker!.prepareToPullData()
         print("Current price is \(tracker!.currentPrice)")
         
         setColor()
@@ -107,18 +109,6 @@ class ViewController: UIViewController {
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
-    }
-    
-    func prepareToPullData() {
-        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
-        tracker!.pullData(request){
-            (data, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                print(data)
-            }
-        }
     }
 }
 
