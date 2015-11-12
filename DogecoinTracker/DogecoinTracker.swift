@@ -26,6 +26,9 @@ class DogecoinTracker {
         self.cycle = cycle
         self.output = 0.4
         self.currentPrice = 350
+        // Have another constructor take in the current price or a method to set current price and the min
+        // and max would be based off the current just for initialization / start as it is possible to have
+        // current < minimum
         getOutput()
         
         if URL.isEmpty || min < 0 || min > max || cycle <= 0 {

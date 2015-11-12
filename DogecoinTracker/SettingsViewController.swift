@@ -33,14 +33,13 @@ class SettingsViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentPriceLabel.text = String(tracker!.currentPrice)
         minlabel.text = String(tracker!.getMin())
         minstepper.value = Double(tracker!.getMin())
         maxlabel.text = String(tracker!.getMax())
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
         picker.text = String(Int(tracker!.getCycle()))
-        currentPriceLabel.text = String(tracker!.currentPrice)
-        
     }
     
       // Mark Unwind Segues

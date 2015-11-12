@@ -103,7 +103,20 @@ class ViewController: UIViewController {
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
-        
+        var timeDelay = Double(1)
+        // for loop current colorHue until new colorHue{
+        // for index in current...new {
+            delay(timeDelay) {
+                /*
+                // set background
+                view.backgroundColor = UIColor(
+                hue: CGFloat(colorHue),
+                saturation: 0.5,
+                brightness: 1.0,
+                alpha: 1.0)
+                */
+            }
+        // }
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
             saturation: 0.5,
