@@ -55,5 +55,9 @@ class DogecoinTrackerTests: XCTestCase {
 
     }
     
-    
+    func testDogecoinTrackerGetOutput() {
+        let tracker = DogecoinTracker(min: 310, max: 330, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+        let output = tracker?.getOutput()
+        XCTAssertEqual((output >= 0.0 && output <= 0.4), true, "Output is out of range [0.0..0.4]")
+    }
 }

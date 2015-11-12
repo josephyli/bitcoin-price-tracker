@@ -97,30 +97,36 @@ class ViewController: UIViewController {
     }
     
     func setColor() {
+        let oldColor = tracker?.oldOutput
         let colorHue = tracker!.getOutput()
+        let diff = ((oldColor! - colorHue) / Float((tracker?.cycle)!))
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
-        var timeDelay = Double(1)
-        // for loop current colorHue until new colorHue{
-        // for index in current...new {
-            delay(timeDelay) {
-                /*
-                // set background
-                view.backgroundColor = UIColor(
-                hue: CGFloat(colorHue),
-                saturation: 0.5,
-                brightness: 1.0,
-                alpha: 1.0)
-                */
-            }
-        // }
+        
+        for var i = 0; i < tracker?.cycle; i++ {
+            let num = oldColor! + (diff * Float(i))
+            // print("Testing hue \(i) is \(num)")
+        }
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
+        tracker?.oldOutput = colorHue
     }
+    
+    func pauseSetBackground(col:Float) {
+        let timeDelay = Double(1)
+        delay(timeDelay) {
+            self.view.backgroundColor = UIColor(
+            hue: CGFloat(col),
+            saturation: 0.5,
+            brightness: 1.0,
+            alpha: 1.0)
+        }
+    }
+    
     func delay(delay:Double, closure:()->()) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_MSEC))),dispatch_get_main_queue(), closure)
     }
