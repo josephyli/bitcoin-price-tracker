@@ -15,7 +15,7 @@ class DogecoinTracker {
     var max: Int
     var URL: String
     var cycle: Int
-    var currentPrice: Int
+    var currentPrice: Double
     // Output, used for color
     var output: CGFloat
     var oldOutput: Float
@@ -72,10 +72,10 @@ class DogecoinTracker {
     * 0.0 is green, 0.4 is red
     */
     func getOutput() -> Float {
-        if currentPrice > max {
+        if currentPrice > Double(max) {
             return 0.4
         }
-        else if currentPrice < min {
+        else if currentPrice < Double(min) {
             return 0.0
         }
         else {
@@ -83,7 +83,7 @@ class DogecoinTracker {
         }
     }
     
-    func setCurrentPrice(currentPrice: Int) {
+    func setCurrentPrice(currentPrice: Double) {
         self.currentPrice = currentPrice
     }
     
@@ -98,7 +98,7 @@ class DogecoinTracker {
                     NSASCIIStringEncoding)!
                 print("Pulled data: \(result)")
                 let newPrice = Double(result)
-                self.setCurrentPrice(Int(newPrice!))
+                self.setCurrentPrice(newPrice!)
                 callback(result as String, nil)
             }
         }

@@ -87,10 +87,10 @@ class ViewController: UIViewController {
         
         setColor()
         print("Output is \(tracker!.getOutput())")
-        if (tracker!.currentPrice > tracker!.max) {
+        if (tracker!.currentPrice > Double(tracker!.max)) {
             playAlert("SecondBeep")
         }
-        else if (tracker!.currentPrice < tracker!.min) {
+        else if (tracker!.currentPrice < Double(tracker!.min)) {
             playAlert("ButtonTap")
         }
 
