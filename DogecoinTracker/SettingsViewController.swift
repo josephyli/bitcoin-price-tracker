@@ -42,6 +42,12 @@ class SettingsViewController: UIViewController  {
         picker.text = String(Int(tracker!.getCycle()))
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
       // Mark Unwind Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // save button is tagged 1
@@ -53,7 +59,15 @@ class SettingsViewController: UIViewController  {
             let min:Int? = Int(self.minlabel.text!)
             let url = self.urlbox.text ?? ""
             let cycle:Int = Int(picker.text!)!
-            tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
+            if (tracker?.currentPrice < min || tracker?.currentPrice > max) {
+                var alert = UIAlertView()
+                alert.title = "Settings Error"
+                alert.message = "Please input valid min / max."
+                alert.addButtonWithTitle("Okay")
+                alert.show()
+            }
+            else {
+                tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
             
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setValue(min, forKey: "min")
@@ -65,16 +79,10 @@ class SettingsViewController: UIViewController  {
             // Pass the selected object to the new view controller.
             tracker!.prepareToPullData()
             toViewController.tracker = tracker!            
+            }
         }
     }
 
-    @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
-        
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func unwindToViewController(sender: UIStoryboardSegue) {
     }
 }

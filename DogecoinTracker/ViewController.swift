@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var tracker = DogecoinTracker(min: 315, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
+    var tracker = DogecoinTracker(min: 315, max: 330, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:5)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -106,16 +106,16 @@ class ViewController: UIViewController {
         var timeDelay = Double(1)
         // for loop current colorHue until new colorHue{
         // for index in current...new {
-            delay(timeDelay) {
-                /*
-                // set background
-                view.backgroundColor = UIColor(
-                hue: CGFloat(colorHue),
-                saturation: 0.5,
-                brightness: 1.0,
-                alpha: 1.0)
-                */
-            }
+//            delay(timeDelay) {
+//                /*
+//                // set background
+//                view.backgroundColor = UIColor(
+//                hue: CGFloat(colorHue),
+//                saturation: 0.5,
+//                brightness: 1.0,
+//                alpha: 1.0)
+//                */
+//            }
         // }
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
