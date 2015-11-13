@@ -15,21 +15,19 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var picker: UITextField!
-    @IBOutlet weak var minlabel: UILabel!
-    @IBOutlet weak var maxlabel: UILabel!
+    @IBOutlet weak var minlabel: UITextField!
+    @IBOutlet weak var maxlabel: UITextField!
     @IBOutlet weak var minstepper: UIStepper!
     @IBOutlet weak var maxstepper: UIStepper!
     @IBOutlet weak var currentPriceLabel: UILabel!
 
     @IBOutlet weak var urlbox: UITextField!
     @IBAction func minstepperchanged(sender: UIStepper) {
-        minlabel.text = Int(sender.value).description
+        minlabel.text = Double(sender.value).description
     }
     @IBAction func maxstepperchanged(sender: UIStepper) {
-        maxlabel.text = Int(sender.value).description
+        maxlabel.text = Double(sender.value).description
     }
-    
-    var pickerData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
