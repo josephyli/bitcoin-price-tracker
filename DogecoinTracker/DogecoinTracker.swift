@@ -18,13 +18,15 @@ class DogecoinTracker {
     var currentPrice: Double
     // Output, used for color
     var output: CGFloat
+    var oldOutput: Float
     
     init?(min: Double, max: Double, URL: String, cycle:Int) {
         self.min = min
         self.max = max
         self.URL = URL
         self.cycle = cycle
-        self.output = 0.4
+        self.output = 0.2
+        self.oldOutput = 0.2
         self.currentPrice = 350
         // Have another constructor take in the current price or a method to set current price and the min
         // and max would be based off the current just for initialization / start as it is possible to have
@@ -70,10 +72,10 @@ class DogecoinTracker {
     * 0.0 is green, 0.4 is red
     */
     func getOutput() -> Float {
-        if currentPrice > max {
+        if currentPrice > Double(max) {
             return 0.4
         }
-        else if currentPrice < min {
+        else if currentPrice < Double(min) {
             return 0.0
         }
         else {

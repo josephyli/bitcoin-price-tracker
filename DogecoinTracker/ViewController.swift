@@ -89,17 +89,19 @@ class ViewController: UIViewController {
         
         setColor()
         print("Output is \(tracker!.getOutput())")
-        if (tracker!.currentPrice > tracker!.max) {
+        if (tracker!.currentPrice > Double(tracker!.max)) {
             playAlert("SecondBeep")
         }
-        else if (tracker!.currentPrice < tracker!.min) {
+        else if (tracker!.currentPrice < Double(tracker!.min)) {
             playAlert("ButtonTap")
         }
 
     }
     
     func setColor() {
+        let oldColor = tracker?.oldOutput
         let colorHue = tracker!.getOutput()
+        let diff = ((oldColor! - colorHue) / Float((tracker?.cycle)!))
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
@@ -122,6 +124,18 @@ class ViewController: UIViewController {
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
+        tracker?.oldOutput = colorHue
+    }
+    
+    func pauseSetBackground(col:Float) {
+        let timeDelay = Double(1)
+        delay(timeDelay) {
+            self.view.backgroundColor = UIColor(
+            hue: CGFloat(col),
+            saturation: 0.5,
+            brightness: 1.0,
+            alpha: 1.0)
+        }
     }
 }
 
