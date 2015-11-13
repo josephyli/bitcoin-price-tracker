@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController  {
             let url = self.urlbox.text ?? ""
             let cycle:Int = Int(picker.text!)!
             if (tracker?.currentPrice < Double(min!) || tracker?.currentPrice > Double(max!)) {
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "Settings Error"
                 alert.message = "Please input valid min / max."
                 alert.addButtonWithTitle("Okay")

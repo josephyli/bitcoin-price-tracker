@@ -102,23 +102,24 @@ class ViewController: UIViewController {
     }
     
     func setColor() {
-        let oldColor = tracker?.oldOutput
+        let oldColor = tracker!.oldOutput
         let colorHue = tracker!.getOutput()
-        let diff = ((oldColor! - colorHue) / Float((tracker?.cycle)!))
+        let increments = ((oldColor - colorHue) / Float((tracker!.cycle)))
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
-        
-        for var i = 0; i < tracker?.cycle; i++ {
-            let num = oldColor! + (diff * Float(i))
-            // print("Testing hue \(i) is \(num)")
+        print("Old color = \(oldColor)")
+        print("New color = \(colorHue)")
+        for var i = tracker!.cycle; i > 0; i-- {
+            let num = oldColor + (increments * Float(i))
+            print("Testing hue \(i) is \(num)")
         }
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
-        tracker?.oldOutput = colorHue
+        // tracker?.oldOutput = colorHue
     }
     
     func pauseSetBackground(col:Float) {
