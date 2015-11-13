@@ -11,15 +11,15 @@ import UIKit
 class DogecoinTracker {
     
     // Input
-    var min: Int
-    var max: Int
+    var min: Double
+    var max: Double
     var URL: String
     var cycle: Int
-    var currentPrice: Int
+    var currentPrice: Double
     // Output, used for color
     var output: CGFloat
     
-    init?(min: Int, max: Int, URL: String, cycle:Int) {
+    init?(min: Double, max: Double, URL: String, cycle:Int) {
         self.min = min
         self.max = max
         self.URL = URL
@@ -36,10 +36,10 @@ class DogecoinTracker {
         }
     }
     
-    func getMin() -> Int {
+    func getMin() -> Double {
         return min
     }
-    func getMax() -> Int {
+    func getMax() -> Double {
         return max
     }
     func getURL() -> String {
@@ -49,11 +49,11 @@ class DogecoinTracker {
         return cycle
     }
     
-    func setMin(min: Int) {
+    func setMin(min: Double) {
         self.min = min
     }
     
-    func setMax(max: Int) {
+    func setMax(max: Double) {
         self.max = max
     }
     
@@ -81,7 +81,7 @@ class DogecoinTracker {
         }
     }
     
-    func setCurrentPrice(currentPrice: Int) {
+    func setCurrentPrice(currentPrice: Double) {
         self.currentPrice = currentPrice
     }
     
@@ -107,7 +107,7 @@ class DogecoinTracker {
                     NSASCIIStringEncoding)!
                 print("Pulled data: \(result)")
                 let newPrice = Double(result)
-                self.setCurrentPrice(Int(newPrice!))
+                self.setCurrentPrice(Double(newPrice!))
                 callback(result as String, nil)
             }
         }

@@ -55,8 +55,8 @@ class SettingsViewController: UIViewController  {
         if (sender!.tag==1) {
             // Get the new view controller using [segue destinationViewController].
             let toViewController = segue.destinationViewController as! ViewController
-            let max:Int? = Int(self.maxlabel.text!)
-            let min:Int? = Int(self.minlabel.text!)
+            let max:Double? = Double(self.maxlabel.text!)
+            let min:Double? = Double(self.minlabel.text!)
             let url = self.urlbox.text ?? ""
             let cycle:Int = Int(picker.text!)!
             if (tracker?.currentPrice < min || tracker?.currentPrice > max) {
