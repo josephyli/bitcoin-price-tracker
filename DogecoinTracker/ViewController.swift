@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    var tracker = DogecoinTracker(min: 300, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:1)
+    var tracker = DogecoinTracker(min: 330, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
                 num = oldColor - (increments * Float(i))
             }
             print("Testing hue after \(i)s is \(num)")
-            pauseSetBackground(i)
+            pauseSetBackground(num, timeToDelay: Double(i))
         }
         /*
         view.backgroundColor = UIColor(
@@ -134,9 +134,8 @@ class ViewController: UIViewController {
         tracker?.oldOutput = colorHue
     }
     
-    func pauseSetBackground(col:Int) {
-        let timeDelay = Double(1)
-        delay(timeDelay) {
+    func pauseSetBackground(col:Float, timeToDelay:Double) {
+        delay(timeToDelay) {
             self.view.backgroundColor = UIColor(
             hue: CGFloat(col),
             saturation: 0.5,
