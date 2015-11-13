@@ -109,7 +109,9 @@ class DogecoinTracker {
                     NSASCIIStringEncoding)!
                 print("Pulled data: \(result)")
                 let newPrice = Double(result)
-                self.setCurrentPrice(Double(newPrice!))
+                if (newPrice != nil) {
+                    self.setCurrentPrice(newPrice!)
+                }
                 callback(result as String, nil)
             }
         }

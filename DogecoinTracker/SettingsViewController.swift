@@ -78,6 +78,7 @@ class SettingsViewController: UIViewController  {
             
             // Pass the selected object to the new view controller.
             tracker!.prepareToPullData()
+            toViewController.setColor()
             toViewController.tracker = tracker!            
             }
         }

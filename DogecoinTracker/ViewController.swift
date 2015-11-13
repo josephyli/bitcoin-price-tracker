@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tracker!.prepareToPullData()
+        setColor()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
     
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
         tracker!.prepareToPullData()
+        setColor()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -53,6 +55,7 @@ class ViewController: UIViewController {
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
         tracker!.prepareToPullData()
+        setColor()
         settingScene.tracker = tracker
     }
     
@@ -105,20 +108,11 @@ class ViewController: UIViewController {
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
-        var timeDelay = Double(1)
-        // for loop current colorHue until new colorHue{
-        // for index in current...new {
-//            delay(timeDelay) {
-//                /*
-//                // set background
-//                view.backgroundColor = UIColor(
-//                hue: CGFloat(colorHue),
-//                saturation: 0.5,
-//                brightness: 1.0,
-//                alpha: 1.0)
-//                */
-//            }
-        // }
+        
+        for var i = 0; i < tracker?.cycle; i++ {
+            let num = oldColor! + (diff * Float(i))
+            // print("Testing hue \(i) is \(num)")
+        }
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
             saturation: 0.5,
@@ -135,6 +129,22 @@ class ViewController: UIViewController {
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
+        }
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_MSEC))),dispatch_get_main_queue(), closure)
+    }
+    
+    func prepareToPullData() {
+        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
+        tracker!.pullData(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print(data)
+            }
         }
     }
 }
