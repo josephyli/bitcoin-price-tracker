@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         let min = defaults.stringArrayForKey("min")
         if ((min) != nil) { // if not null then they all their settings should also be not null
-            let max = defaults.stringArrayForKey("max")
-            let url = defaults.stringArrayForKey("url")
-            let cycle = defaults.stringArrayForKey("cycle")
+            let _ = defaults.stringArrayForKey("max")
+            _ = defaults.stringArrayForKey("url")
+            _ = defaults.stringArrayForKey("cycle")
             // Create new DogecoinTracker with saved settings
         }
     }
@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tracker!.prepareToPullData()
-        setColor()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
+        setColor()
         countdown()
     }
 

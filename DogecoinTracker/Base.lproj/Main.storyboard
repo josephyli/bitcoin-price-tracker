@@ -85,7 +85,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="300" maximumValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-kf-mZW">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-kf-mZW">
                                 <rect key="frame" x="23" y="175" width="94" height="29"/>
                                 <animations/>
                                 <connections>
@@ -171,7 +171,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="400" maximumValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-dW-unz">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-dW-unz">
                                 <rect key="frame" x="483" y="175" width="94" height="29"/>
                                 <animations/>
                                 <connections>
