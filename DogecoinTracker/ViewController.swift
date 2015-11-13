@@ -113,13 +113,16 @@ class ViewController: UIViewController {
         for var i = tracker!.cycle; i > 0; i-- {
             let num = oldColor + (increments * Float(i))
             print("Testing hue \(i) is \(num)")
+            pauseSetBackground(num)
         }
+        /*
         view.backgroundColor = UIColor(
             hue: CGFloat(colorHue),
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
-        // tracker?.oldOutput = colorHue
+        */
+        tracker?.oldOutput = colorHue
     }
     
     func pauseSetBackground(col:Float) {
