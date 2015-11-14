@@ -106,14 +106,17 @@ class ViewController: UIViewController {
         var pos: BooleanType
         let oldColor = tracker!.oldOutput
         let colorHue = tracker!.getOutput()
+        let changesPerSec = Float(5)
         pos = (oldColor < colorHue)
-        let increments = ((oldColor - colorHue) / Float((tracker!.cycle)))
+        let increments = abs(oldColor - colorHue) / (Float(tracker!.cycle))
         // Lerp color for smooth color transition
         // let previousColor = 
         // loop to setthe background between previousColor until the new float color colorHue
         print("Old color = \(oldColor)")
         print("New color = \(colorHue)")
-        for var i = 0; i < tracker!.cycle; i++ {
+        print("Increments = \(increments)")
+        var i = Float(0)
+        while i < Float(tracker!.cycle) {
             let num: Float
             if pos {
                 num = oldColor + (increments * Float(i))
@@ -122,14 +125,10 @@ class ViewController: UIViewController {
             }
             print("Testing hue after \(i)s is \(num)")
             pauseSetBackground(num, timeToDelay: Double(i))
+            i += Float(1) / changesPerSec
         }
-        /*
-        view.backgroundColor = UIColor(
-            hue: CGFloat(colorHue),
-            saturation: 0.5,
-            brightness: 1.0,
-            alpha: 1.0)
-        */
+        print("Testing hue after \(i)s is \(colorHue)")
+        pauseSetBackground(colorHue, timeToDelay: Double(i))
         
         tracker?.oldOutput = colorHue
     }
@@ -145,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     func delay(delay:Double, closure:()->()) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_MSEC))),dispatch_get_main_queue(), closure)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
     }
     
     func prepareToPullData() {
