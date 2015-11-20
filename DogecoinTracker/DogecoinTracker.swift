@@ -28,15 +28,58 @@ class DogecoinTracker {
         self.output = 0.2
         self.oldOutput = 0.2
         self.currentPrice = 350
-        // Have another constructor take in the current price or a method to set current price and the min
-        // and max would be based off the current just for initialization / start as it is possible to have
-        // current < minimum
-        getOutput()
+       // getOutput()
         
         if URL.isEmpty || min < 0 || min > max || cycle <= 0 {
             return nil
         }
     }
+
+    /*
+    // Constructor for url and cycle
+    init?(URL: String, cycle:Int) {
+        self.URL = URL
+        self.cycle = cycle
+        self.currentPrice = 300
+        self.output = 0.2
+        self.oldOutput = 0.2
+        self.min = 300
+        self.max = 400
+        self.output = 0.2
+        self.oldOutput = 0.2
+        self.currentPrice = 350
+        
+        if URL.isEmpty || cycle <= 0 {
+            return nil
+        }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var min:Double = -1
+        min = defaults.doubleForKey("min")
+        let offset:Double = 20
+        if ((min) != -1) { // if min is saved then rest are saved as well
+            let max = defaults.doubleForKey("max")
+            let url = defaults.stringForKey("url")
+            let cycle = defaults.integerForKey("cycle")
+            self.URL = url!
+            self.cycle = cycle
+            // Get current price
+             if min < currentPrice {
+                self.min = min
+            } else {
+                self.min = currentPrice - offset
+            }
+            if max > currentPrice {
+                self.max = max
+            } else {
+                self.max = currentPrice + offset
+            }
+    
+        } else { // No values stored, set min and max from current price
+            self.min = currentPrice - offset
+            self.max = currentPrice + offset
+        }
+    }
+    */
     
     func getMin() -> Double {
         return min
@@ -69,7 +112,7 @@ class DogecoinTracker {
     
     /*
     * Range [0.0, 0.4]
-    * 0.0 is green, 0.4 is red
+    * 0.0 is red, 0.4 is green
     */
     func getOutput() -> Float {
         if currentPrice > Double(max) {

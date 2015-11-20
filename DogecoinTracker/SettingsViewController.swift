@@ -63,16 +63,26 @@ class SettingsViewController: UIViewController  {
                 alert.message = "Please input valid min / max."
                 alert.addButtonWithTitle("Okay")
                 alert.show()
-            }
-            else {
+            } else if (cycle < 1) {
+                let alert = UIAlertView()
+                alert.title = "Settings Error"
+                alert.message = "Please input valid cycle time >= 1."
+                alert.addButtonWithTitle("Okay")
+                alert.show()
+            } else {
                 tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
-            
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setValue(min, forKey: "min")
-            defaults.setValue(max, forKey: "max")
-            defaults.setValue(url, forKey: "url")
-            defaults.setValue(cycle, forKey: "cycle")
-            defaults.synchronize()
+                /*
+                tracker?.setMin(min!)
+                tracker?.setMax(max!)
+                tracker?.setURL(url)
+                tracker?.setCycle(cycle)
+                */
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setValue(min, forKey: "min")
+                defaults.setValue(max, forKey: "max")
+                defaults.setValue(url, forKey: "url")
+                defaults.setValue(cycle, forKey: "cycle")
+                defaults.synchronize()
             
             // Pass the selected object to the new view controller.
             tracker!.prepareToPullData()

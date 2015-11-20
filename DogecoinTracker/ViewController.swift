@@ -12,11 +12,13 @@ import AVFoundation
 class ViewController: UIViewController {
 
     var tracker = DogecoinTracker(min: 330, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
+    //var tracker = DogecoinTracker(URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
     var soundPlayer: AVPlayer!
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    /* to delete later
     func getDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let min = defaults.stringArrayForKey("min")
@@ -27,11 +29,12 @@ class ViewController: UIViewController {
             // Create new DogecoinTracker with saved settings
         }
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tracker!.prepareToPullData()
-        setColor()
+      //  setColor()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -45,7 +48,7 @@ class ViewController: UIViewController {
     
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
         tracker!.prepareToPullData()
-        setColor()
+    //    setColor()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -56,7 +59,7 @@ class ViewController: UIViewController {
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
         tracker!.prepareToPullData()
-        setColor()
+     //   setColor()
         settingScene.tracker = tracker
     }
     
@@ -123,11 +126,9 @@ class ViewController: UIViewController {
             } else {
                 num = oldColor - (increments * Float(i))
             }
-            print("Testing hue after \(i)s is \(num)")
             pauseSetBackground(num, timeToDelay: Double(i))
             i += Float(1) / changesPerSec
         }
-        print("Testing hue after \(i)s is \(colorHue)")
         pauseSetBackground(colorHue, timeToDelay: Double(i))
         
         tracker?.oldOutput = colorHue
@@ -135,6 +136,7 @@ class ViewController: UIViewController {
     
     func pauseSetBackground(col:Float, timeToDelay:Double) {
         delay(timeToDelay) {
+            print("Testing hue setting background to \(col)")
             self.view.backgroundColor = UIColor(
             hue: CGFloat(col),
             saturation: 0.5,
