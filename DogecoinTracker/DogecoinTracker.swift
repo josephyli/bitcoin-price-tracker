@@ -20,6 +20,10 @@ class DogecoinTracker {
     var output: CGFloat
     var oldOutput: Float
     
+    /* 
+     * Constructor for DogecoinTracker
+     * Sets min/max, URL, and cycle
+     */
     init?(min: Double, max: Double, URL: String, cycle:Int) {
         self.min = min
         self.max = max
@@ -81,15 +85,19 @@ class DogecoinTracker {
     }
     */
     
+    /* getter and setter functions */
     func getMin() -> Double {
         return min
     }
+    
     func getMax() -> Double {
         return max
     }
+    
     func getURL() -> String {
         return URL
     }
+    
     func getCycle() -> Int {
         return cycle
     }
@@ -130,6 +138,7 @@ class DogecoinTracker {
         self.currentPrice = currentPrice
     }
     
+    /* Wrapper function that calls pullData() to get the current data */
     func prepareToPullData() {
         let request = NSMutableURLRequest(URL: NSURL(string: URL)!)
         pullData(request){
@@ -141,6 +150,8 @@ class DogecoinTracker {
             }
         }
     }
+    
+    /* pullData retrieves data from the URL and sets it as the current price */
     func pullData(request: NSURLRequest!, callback: (String, String?) -> Void) {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request){
@@ -162,7 +173,6 @@ class DogecoinTracker {
     }
     
 
-    
     // Documentation for URL session (seems to be in Obj-C)
     // https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i
     // Sample NSURLSession code: https://medium.com/swift-programming/learn-nsurlsession-using-swift-ebd80205f87c
