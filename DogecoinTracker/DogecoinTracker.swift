@@ -20,6 +20,10 @@ class DogecoinTracker {
     var output: CGFloat
     var oldOutput: Float
     
+    /* 
+     * Constructor for DogecoinTracker
+     * Sets min/max, URL, and cycle
+     */
     init?(min: Double, max: Double, URL: String, cycle:Int) {
         self.min = min
         self.max = max
@@ -28,25 +32,72 @@ class DogecoinTracker {
         self.output = 0.2
         self.oldOutput = 0.2
         self.currentPrice = 350
-        // Have another constructor take in the current price or a method to set current price and the min
-        // and max would be based off the current just for initialization / start as it is possible to have
-        // current < minimum
-        getOutput()
+       // getOutput()
         
         if URL.isEmpty || min < 0 || min > max || cycle <= 0 {
             return nil
         }
     }
+
+    /*
+    // Constructor for url and cycle
+    init?(URL: String, cycle:Int) {
+        self.URL = URL
+        self.cycle = cycle
+        self.currentPrice = 300
+        self.output = 0.2
+        self.oldOutput = 0.2
+        self.min = 300
+        self.max = 400
+        self.output = 0.2
+        self.oldOutput = 0.2
+        self.currentPrice = 350
+        
+        if URL.isEmpty || cycle <= 0 {
+            return nil
+        }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var min:Double = -1
+        min = defaults.doubleForKey("min")
+        let offset:Double = 20
+        if ((min) != -1) { // if min is saved then rest are saved as well
+            let max = defaults.doubleForKey("max")
+            let url = defaults.stringForKey("url")
+            let cycle = defaults.integerForKey("cycle")
+            self.URL = url!
+            self.cycle = cycle
+            // Get current price
+             if min < currentPrice {
+                self.min = min
+            } else {
+                self.min = currentPrice - offset
+            }
+            if max > currentPrice {
+                self.max = max
+            } else {
+                self.max = currentPrice + offset
+            }
     
+        } else { // No values stored, set min and max from current price
+            self.min = currentPrice - offset
+            self.max = currentPrice + offset
+        }
+    }
+    */
+    
+    /* getter and setter functions */
     func getMin() -> Double {
         return min
     }
+    
     func getMax() -> Double {
         return max
     }
+    
     func getURL() -> String {
         return URL
     }
+    
     func getCycle() -> Int {
         return cycle
     }
@@ -69,7 +120,7 @@ class DogecoinTracker {
     
     /*
     * Range [0.0, 0.4]
-    * 0.0 is green, 0.4 is red
+    * 0.0 is red, 0.4 is green
     */
     func getOutput() -> Float {
         if currentPrice > Double(max) {
@@ -87,6 +138,7 @@ class DogecoinTracker {
         self.currentPrice = currentPrice
     }
     
+    /* Wrapper function that calls pullData() to get the current data */
     func prepareToPullData() {
         let request = NSMutableURLRequest(URL: NSURL(string: URL)!)
         pullData(request){
@@ -98,6 +150,8 @@ class DogecoinTracker {
             }
         }
     }
+    
+    /* pullData retrieves data from the URL and sets it as the current price */
     func pullData(request: NSURLRequest!, callback: (String, String?) -> Void) {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request){
@@ -119,7 +173,6 @@ class DogecoinTracker {
     }
     
 
-    
     // Documentation for URL session (seems to be in Obj-C)
     // https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i
     // Sample NSURLSession code: https://medium.com/swift-programming/learn-nsurlsession-using-swift-ebd80205f87c
