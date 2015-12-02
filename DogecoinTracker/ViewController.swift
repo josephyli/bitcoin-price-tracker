@@ -34,7 +34,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tracker!.prepareToPullData()
-      //  setColor()
+        tracker!.oldOutput = tracker!.getOutput()
+        // setColor()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
-        tracker!.prepareToPullData()
+     //   tracker!.prepareToPullData()
     //    setColor()
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
         let navScene = segue.destinationViewController as! UINavigationController
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
-        tracker!.prepareToPullData()
+     //   tracker!.prepareToPullData()
      //   setColor()
         settingScene.tracker = tracker
     }
