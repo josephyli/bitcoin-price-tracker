@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    var tracker = DogecoinTracker(min: 330, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
+    var tracker = DogecoinTracker(min: 330, max: 365, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
     //var tracker = DogecoinTracker(URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
     var soundPlayer: AVPlayer!
     
