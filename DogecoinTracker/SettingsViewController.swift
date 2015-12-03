@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController  {
             self.maxlabel.text = String(Double((tracker?.currentPrice)!) + 5)
         }
         else if (Double(self.minlabel.text!) > tracker?.currentPrice) {
-            let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price below than the current price: $\(tracker!.currentPrice). (Min price alert was set to $5 below current price.)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
             self.minlabel.text = String(Double((tracker?.currentPrice)!) - 5)
