@@ -21,29 +21,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    /* to delete later
-    func getDefaults() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let min = defaults.stringArrayForKey("min")
-        if ((min) != nil) { // if not null then they all their settings should also be not null
-            let _ = defaults.stringArrayForKey("max")
-            _ = defaults.stringArrayForKey("url")
-            _ = defaults.stringArrayForKey("cycle")
-            // Create new DogecoinTracker with saved settings
-        }
-    }
-    */
-    
+    // Called when view loads
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
         tracker!.prepareToPullData()
         print ("Max is \(tracker!.getMax())")
         print ("Min is \(tracker!.getMin())")
         print ("Cycle is \(tracker!.getCycle())")
-        setColor()
         countdown()
     }
 
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        let alert = UIAlertController(title: "Say Hello to Bitcoin Tracker", message:"This is an ambient app runs in the background of your life. The background color turns red when prices near the lower limit, and green when current price nears the upper limit. When the limit is reached, the app makes a sound! Tap on Settings to adjust limits and RSS URL for prices. Enjoy!", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Much wow!", style: .Default) { _ in })
+        self.presentViewController(alert, animated: true){}
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

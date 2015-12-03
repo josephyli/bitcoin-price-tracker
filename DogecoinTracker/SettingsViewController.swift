@@ -22,17 +22,70 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var maxstepper: UIStepper!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var urlbox: UITextField!
-    
+
     // Called when the minimum stepper is changed
     @IBAction func minstepperchanged(sender: UIStepper) {
-        minlabel.text = Double(sender.value).description
+        minlabel.text = String(format: "%.2f", Double(sender.value))
     }
     
     // Called when the maximum stepper is changed
     @IBAction func maxstepperchanged(sender: UIStepper) {
-        maxlabel.text = Double(sender.value).description
+        maxlabel.text = String(format: "%.2f",Double(sender.value))
     }
     
+    @IBAction func saveAction(sender: AnyObject) {
+        let max:Double? = Double(self.maxlabel.text!)
+        let min:Double? = Double(self.minlabel.text!)
+        let url = self.urlbox.text ?? ""
+        let cycle:Int = Int(picker.text!)!
+        
+        if (self.maxlabel.text!.isEmpty) {
+            let alert = UIAlertController(title: "You forgot something", message:"Maximum price may not be empty", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.maxlabel.text = String(tracker?.max)
+        }
+
+        else if (self.minlabel.text!.isEmpty) {
+            let alert = UIAlertController(title: "You forgot something", message:"Minimum price may not be empty", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.minlabel.text = String(tracker?.min)
+        }
+        
+        if (self.urlbox.text!.isEmpty) {
+            let alert = UIAlertController(title: "You forgot something", message:"URL may not be empty", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.urlbox.text = String(tracker?.URL)
+        }
+        else if (self.picker.text!.isEmpty || Int(self.picker.text!) < 1) {
+            let alert = UIAlertController(title: "You forgot something", message:"Cycle time cannot be empty or less than 1", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.picker.text = String(tracker?.cycle)
+        }
+        else if (Double(self.maxlabel.text!) < tracker?.currentPrice) {
+            let alert = UIAlertController(title: "Max price", message:"Max price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.maxlabel.text = String(Double((tracker?.currentPrice)!) + 5)
+        }
+        else if (Double(self.minlabel.text!) > tracker?.currentPrice) {
+            let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+            self.minlabel.text = String(Double((tracker?.currentPrice)!) - 5)
+        }
+        else {
+            tracker?.setMin(min!)
+            tracker?.setMax(max!)
+            tracker?.setURL(url)
+            tracker?.setCycle(cycle)
+            self.performSegueWithIdentifier("Cancel" , sender: self)
+        }
+
+    }
     // Called when the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,41 +105,14 @@ class SettingsViewController: UIViewController  {
 
     // Mark Unwind Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // save button is tagged 1
-        // cancel button is tagged 2
-        if (sender!.tag==1) {
-            // Get the new view controller using [segue destinationViewController].
-            let toViewController = segue.destinationViewController as! ViewController
-            let max:Double? = Double(self.maxlabel.text!)
-            let min:Double? = Double(self.minlabel.text!)
-            let url = self.urlbox.text ?? ""
-            let cycle:Int = Int(picker.text!)!
-            if (tracker?.currentPrice < Double(min!) || tracker?.currentPrice > Double(max!)) {
-                let alert = UIAlertView()
-                alert.title = "Settings Error"
-                alert.message = "Please input valid min / max."
-                alert.addButtonWithTitle("Okay")
-                alert.show()
-            } else if (cycle < 1) {
-                let alert = UIAlertView()
-                alert.title = "Settings Error"
-                alert.message = "Please input valid cycle time >= 1."
-                alert.addButtonWithTitle("Okay")
-                alert.show()
-            } else {
-                tracker?.setMin(min!)
-                tracker?.setMax(max!)
-                tracker?.setURL(url)
-                tracker?.setCycle(cycle)
-                
-                //Pass the selected object to the new view controller.
-                tracker!.prepareToPullData()
-                toViewController.setColor()
-                toViewController.tracker = tracker!
-            }
-        }
+        let toViewController = segue.destinationViewController as! ViewController
+        
+        //Pass the selected object to the new view controller.
+        tracker!.prepareToPullData()
+        toViewController.setColor()
+        toViewController.tracker = tracker!
     }
-
+    
     func unwindToViewController(sender: UIStoryboardSegue) {
     }
 }
