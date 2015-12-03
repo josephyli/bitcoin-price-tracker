@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController  {
     
     var tracker: DogecoinTracker?
     
+    /* UI Elements */
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var picker: UITextField!
@@ -20,15 +21,19 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var minstepper: UIStepper!
     @IBOutlet weak var maxstepper: UIStepper!
     @IBOutlet weak var currentPriceLabel: UILabel!
-
     @IBOutlet weak var urlbox: UITextField!
+    
+    // Called when the minimum stepper is changed
     @IBAction func minstepperchanged(sender: UIStepper) {
         minlabel.text = Double(sender.value).description
     }
+    
+    // Called when the maximum stepper is changed
     @IBAction func maxstepperchanged(sender: UIStepper) {
         maxlabel.text = Double(sender.value).description
     }
     
+    // Called when the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPriceLabel.text = String(format: "%.2f", tracker!.currentPrice)
@@ -45,8 +50,7 @@ class SettingsViewController: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
 
-    
-      // Mark Unwind Segues
+    // Mark Unwind Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // save button is tagged 1
         // cancel button is tagged 2
@@ -70,24 +74,15 @@ class SettingsViewController: UIViewController  {
                 alert.addButtonWithTitle("Okay")
                 alert.show()
             } else {
-                tracker = DogecoinTracker(min: min!, max: max!, URL: url, cycle: cycle)
-                /*
                 tracker?.setMin(min!)
                 tracker?.setMax(max!)
                 tracker?.setURL(url)
                 tracker?.setCycle(cycle)
-                */
-                let defaults = NSUserDefaults.standardUserDefaults()
-                defaults.setValue(min, forKey: "min")
-                defaults.setValue(max, forKey: "max")
-                defaults.setValue(url, forKey: "url")
-                defaults.setValue(cycle, forKey: "cycle")
-                defaults.synchronize()
-            
-            // Pass the selected object to the new view controller.
-            tracker!.prepareToPullData()
-            toViewController.setColor()
-            toViewController.tracker = tracker!            
+                
+                //Pass the selected object to the new view controller.
+                tracker!.prepareToPullData()
+                toViewController.setColor()
+                toViewController.tracker = tracker!
             }
         }
     }

@@ -11,10 +11,13 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    var tracker = DogecoinTracker(min: 330, max: 350, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
-    //var tracker = DogecoinTracker(URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
+    // Create an instance of the data module
+    var tracker = DogecoinTracker(min: 330, max: 400, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
+    
+    // For playing sounds
     var soundPlayer: AVPlayer!
     
+    // Settings button
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -47,8 +50,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToViewController(sender: UIStoryboardSegue) {
-        tracker!.prepareToPullData()
-    //    setColor()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -58,8 +59,6 @@ class ViewController: UIViewController {
         let navScene = segue.destinationViewController as! UINavigationController
         let settingScene = navScene.viewControllers.first as! SettingsViewController
         // Pass the selected object to the new view controller.
-        tracker!.prepareToPullData()
-     //   setColor()
         settingScene.tracker = tracker
     }
     
@@ -68,7 +67,6 @@ class ViewController: UIViewController {
     // Takes a sound file's filename as a String and plays the sound
     func playAlert(filename: String) {
         do {
-            //keep alive audio at background
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         } catch _ {
         }
@@ -78,16 +76,13 @@ class ViewController: UIViewController {
         }
         // play alert if needed
         let audioFilePath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(filename, ofType: "wav")!)
-        // sound alert
-        do {
-            soundPlayer = try AVPlayer(URL: audioFilePath)
-            soundPlayer.play()
-        } catch {
-            print("Error getting the audio file")
-        }
-
+        
+        soundPlayer = AVPlayer(URL: audioFilePath)
+        soundPlayer.play()
     }
     
+    // This function sets the timer according to the frequency in settings
+    // Pulls the current price, and calls the function to set the background color.
     func countdown() {
         _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
 
@@ -102,63 +97,18 @@ class ViewController: UIViewController {
         else if (tracker!.currentPrice < Double(tracker!.min)) {
             playAlert("ButtonTap")
         }
-
     }
     
+    // Sets the background color using the output from data module.
     func setColor() {
-        var pos: BooleanType
-        let oldColor = tracker!.oldOutput
         let colorHue = tracker!.getOutput()
-        let changesPerSec = Float(5)
-        pos = (oldColor < colorHue)
-        let increments = abs(oldColor - colorHue) / (Float(tracker!.cycle))
-        // Lerp color for smooth color transition
-        // let previousColor = 
-        // loop to setthe background between previousColor until the new float color colorHue
-        print("Old color = \(oldColor)")
-        print("New color = \(colorHue)")
-        print("Increments = \(increments)")
-        var i = Float(0)
-        while i < Float(tracker!.cycle) {
-            let num: Float
-            if pos {
-                num = oldColor + (increments * Float(i))
-            } else {
-                num = oldColor - (increments * Float(i))
-            }
-            pauseSetBackground(num, timeToDelay: Double(i))
-            i += Float(1) / changesPerSec
-        }
-        pauseSetBackground(colorHue, timeToDelay: Double(i))
-        
-        tracker?.oldOutput = colorHue
-    }
-    
-    func pauseSetBackground(col:Float, timeToDelay:Double) {
-        delay(timeToDelay) {
-            print("Testing hue setting background to \(col)")
-            self.view.backgroundColor = UIColor(
-            hue: CGFloat(col),
+        self.view.backgroundColor = UIColor(
+            hue: CGFloat(colorHue),
             saturation: 0.5,
             brightness: 1.0,
             alpha: 1.0)
-        }
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
-    }
-    
-    func prepareToPullData() {
-        let request = NSMutableURLRequest(URL: NSURL(string: tracker!.URL)!)
-        tracker!.pullData(request){
-            (data, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                print(data)
-            }
-        }
     }
 }
+
+
 
