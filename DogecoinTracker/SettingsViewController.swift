@@ -23,6 +23,12 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var urlbox: UITextField!
 
+    @IBAction func maxAction(sender: AnyObject) {
+        maxstepper.value = Double(maxlabel.text!)!
+    }
+    @IBAction func minAction(sender: AnyObject) {
+        minstepper.value = Double(minlabel.text!)!
+    }
     // Called when the minimum stepper is changed
     @IBAction func minstepperchanged(sender: UIStepper) {
         minlabel.text = String(format: "%.2f", Double(sender.value))

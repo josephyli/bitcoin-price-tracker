@@ -154,6 +154,12 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="valueChanged" id="F7l-nt-Fip"/>
+                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingDidBegin" id="IHO-Zk-722"/>
+                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingChanged" id="cHy-ha-n1V"/>
+                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="hnU-Ue-hP4"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WDR-bo-ooO">
                                 <rect key="frame" x="483" y="137" width="97" height="30"/>
@@ -163,6 +169,12 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingChanged" id="0CP-Y9-rbI"/>
+                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="G6X-u6-h1v"/>
+                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingDidBegin" id="RB8-gw-2e6"/>
+                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="valueChanged" id="qi7-Um-Un2"/>
+                                </connections>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-dW-unz">
                                 <rect key="frame" x="483" y="175" width="94" height="29"/>
