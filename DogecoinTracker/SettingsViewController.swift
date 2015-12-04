@@ -122,6 +122,7 @@ class SettingsViewController: UIViewController  {
         maxstepper.value = Double(tracker!.getMax())
         urlbox.text = String(tracker!.getURL())
         picker.text = String(Int(tracker!.getCycle()))
+        countdown()
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,4 +142,14 @@ class SettingsViewController: UIViewController  {
     
     func unwindToViewController(sender: UIStoryboardSegue) {
     }
+    
+    func countdown() {
+        _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
+        updatePrice()
+    }
+    
+    func updatePrice() {
+        self.currentPriceLabel.text = "$" + String(format: "%.2f", tracker!.currentPrice)
+    }
+
 }

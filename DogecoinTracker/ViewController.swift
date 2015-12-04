@@ -111,7 +111,7 @@ class ViewController: UIViewController {
     func isAppAlreadyLaunchedOnce()->Bool{
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
+        if let _ = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
             print("App already launched")
             return true
         }else{
