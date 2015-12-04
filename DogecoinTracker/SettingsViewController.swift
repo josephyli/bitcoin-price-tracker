@@ -144,6 +144,7 @@ class SettingsViewController: UIViewController  {
     }
     
     func unwindToViewController(sender: UIStoryboardSegue) {
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
     }
     
     func countdown() {
