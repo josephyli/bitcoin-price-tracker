@@ -126,11 +126,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://api.bitcoinaverage.com/ticker/global/USD/last" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGD-Z0-xR4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://api.bitcoinaverage.com/ticker/global/USD/last" borderStyle="roundedRect" placeholder="https://api.bitcoinaverage.com/ticker/global/USD/last" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eGD-Z0-xR4">
                                 <rect key="frame" x="86" y="304" width="494" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                <connections>
+                                    <action selector="URLAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="h8v-re-nv9"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw1-DF-kvV">
                                 <rect key="frame" x="16" y="308" width="62" height="20"/>
@@ -148,16 +151,17 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="cycleAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="YZZ-84-9vM"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NHH-QB-bwU">
                                 <rect key="frame" x="20" y="137" width="97" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="minAction:" destination="tsV-Ja-ixV" eventType="valueChanged" id="F7l-nt-Fip"/>
-                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingDidBegin" id="IHO-Zk-722"/>
-                                    <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingChanged" id="cHy-ha-n1V"/>
                                     <action selector="minAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="hnU-Ue-hP4"/>
                                 </connections>
                             </textField>
@@ -168,11 +172,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Juc-xj-yFf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingChanged" id="0CP-Y9-rbI"/>
                                     <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingDidEnd" id="G6X-u6-h1v"/>
-                                    <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="editingDidBegin" id="RB8-gw-2e6"/>
                                     <action selector="maxAction:" destination="tsV-Ja-ixV" eventType="valueChanged" id="qi7-Um-Un2"/>
                                 </connections>
                             </textField>

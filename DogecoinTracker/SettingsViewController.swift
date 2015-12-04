@@ -24,10 +24,20 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var urlbox: UITextField!
 
     @IBAction func maxAction(sender: AnyObject) {
-        maxstepper.value = Double(maxlabel.text!)!
+        if (maxlabel.text != "") {
+            maxstepper.value = Double(maxlabel.text!)!
+        }
+        else {
+            maxlabel.text = String(format: "%.2f", Double(maxstepper.value))
+        }
     }
     @IBAction func minAction(sender: AnyObject) {
-        minstepper.value = Double(minlabel.text!)!
+        if (minlabel.text != "") {
+            minstepper.value = Double(minlabel.text!)!
+        } else {
+            minlabel.text = String(format: "%.2f", Double(minstepper.value))
+        }
+
     }
     // Called when the minimum stepper is changed
     @IBAction func minstepperchanged(sender: UIStepper) {
@@ -39,51 +49,61 @@ class SettingsViewController: UIViewController  {
         maxlabel.text = String(format: "%.2f",Double(sender.value))
     }
     
+    @IBAction func cycleAction(sender: AnyObject) {
+        if (self.picker.text!.isEmpty) {
+            self.picker.text = String(tracker!.cycle)
+        }
+    }
+    
+    @IBAction func URLAction(sender: AnyObject) {
+        if (self.urlbox.text!.isEmpty) {
+            self.urlbox.text = String(tracker!.URL)
+        }
+    }
     @IBAction func saveAction(sender: AnyObject) {
-        let max:Double? = Double(self.maxlabel.text!)
-        let min:Double? = Double(self.minlabel.text!)
-        let url = self.urlbox.text ?? ""
-        let cycle:Int = Int(picker.text!)!
         
-        if (self.maxlabel.text!.isEmpty) {
+        if (self.maxlabel.text!.isEmpty || maxlabel.text == "") {
             let alert = UIAlertController(title: "You forgot something", message:"Maximum price may not be empty", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.maxlabel.text = String(tracker?.max)
         }
 
-        else if (self.minlabel.text!.isEmpty) {
+        else if (self.minlabel.text!.isEmpty || minlabel.text == "") {
             let alert = UIAlertController(title: "You forgot something", message:"Minimum price may not be empty", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.minlabel.text = String(tracker?.min)
         }
-        
-        if (self.urlbox.text!.isEmpty) {
+            
+        else if (self.urlbox.text!.isEmpty) {
             let alert = UIAlertController(title: "You forgot something", message:"URL may not be empty", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.urlbox.text = String(tracker?.URL)
+            self.urlbox.text = String(tracker!.URL)
         }
         else if (self.picker.text!.isEmpty || Int(self.picker.text!) < 1) {
             let alert = UIAlertController(title: "You forgot something", message:"Cycle time cannot be empty or less than 1", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.picker.text = String(tracker?.cycle)
+            self.picker.text = String(tracker!.cycle)
         }
-        else if (Double(self.maxlabel.text!) < tracker?.currentPrice) {
+        else if (Double(self.maxlabel.text!) < tracker?.currentPrice &&  maxlabel.text != "") {
             let alert = UIAlertController(title: "Max price", message:"Max price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.maxlabel.text = String(Double((tracker?.currentPrice)!) + 5)
+            self.maxlabel.text = String(Double((tracker!.currentPrice)) + 5)
         }
-        else if (Double(self.minlabel.text!) > tracker?.currentPrice) {
+        else if (Double(self.minlabel.text!) > tracker?.currentPrice && minlabel.text != "") {
             let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price below than the current price: $\(tracker!.currentPrice). (Min price alert was set to $5 below current price.)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-            self.minlabel.text = String(Double((tracker?.currentPrice)!) - 5)
+            self.minlabel.text = String(Double((tracker!.currentPrice)) - 5)
         }
         else {
+            let max:Double? = Double(self.maxlabel.text!)
+            let min:Double? = Double(self.minlabel.text!)
+            let url = self.urlbox.text ?? ""
+            let cycle:Int = Int(picker.text!)!
+
             tracker?.setMin(min!)
             tracker?.setMax(max!)
             tracker?.setURL(url)
