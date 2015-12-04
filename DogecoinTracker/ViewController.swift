@@ -12,7 +12,7 @@ import AVFoundation
 class ViewController: UIViewController {
 
     // Create an instance of the data module
-    var tracker = DogecoinTracker(min: 330, max: 400, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:4)
+    var tracker = DogecoinTracker(min: 330, max: 400, URL: "https://api.bitcoinaverage.com/ticker/global/USD/last", cycle:2)
     
     // For playing sounds
     var soundPlayer: AVPlayer!

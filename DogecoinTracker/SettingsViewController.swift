@@ -56,6 +56,7 @@ class SettingsViewController: UIViewController  {
     }
     
     @IBAction func URLAction(sender: AnyObject) {
+        
         if (self.urlbox.text!.isEmpty) {
             self.urlbox.text = String(tracker!.URL)
         }
@@ -99,6 +100,8 @@ class SettingsViewController: UIViewController  {
             self.minlabel.text = String(Double((tracker!.currentPrice)) - 5)
         }
         else {
+            UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+            
             let max:Double? = Double(self.maxlabel.text!)
             let min:Double? = Double(self.minlabel.text!)
             let url = self.urlbox.text ?? ""
