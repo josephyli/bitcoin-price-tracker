@@ -74,13 +74,6 @@ class SettingsViewController: UIViewController  {
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
         }
-            
-        else if (self.urlbox.text!.isEmpty) {
-            let alert = UIAlertController(title: "You forgot something", message:"URL may not be empty", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
-            self.urlbox.text = String(tracker!.URL)
-        }
         else if (self.picker.text!.isEmpty || Int(self.picker.text!) < 1) {
             let alert = UIAlertController(title: "You forgot something", message:"Cycle time cannot be empty or less than 1", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
@@ -104,12 +97,10 @@ class SettingsViewController: UIViewController  {
             
             let max:Double? = Double(self.maxlabel.text!)
             let min:Double? = Double(self.minlabel.text!)
-            let url = self.urlbox.text ?? ""
             let cycle:Int = Int(picker.text!)!
 
             tracker?.setMin(min!)
             tracker?.setMax(max!)
-            tracker?.setURL(url)
             tracker?.setCycle(cycle)
             self.performSegueWithIdentifier("Cancel" , sender: self)
         }
@@ -123,7 +114,6 @@ class SettingsViewController: UIViewController  {
         minstepper.value = Double(tracker!.getMin())
         maxlabel.text = String(format: "%.2f", tracker!.getMax())
         maxstepper.value = Double(tracker!.getMax())
-        urlbox.text = String(tracker!.getURL())
         picker.text = String(Int(tracker!.getCycle()))
         countdown()
     }
