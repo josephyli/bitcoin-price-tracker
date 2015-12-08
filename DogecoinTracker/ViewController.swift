@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-        if !(isAppAlreadyLaunchedOnce()) {
+//        if !(isAppAlreadyLaunchedOnce()) {
             let alert = UIAlertController(title: "Say Hello to Bitcoin Tracker", message:"This is an ambient app runs in the background of your life. The background color turns red when prices near the lower limit, and green when current price nears the upper limit. When the limit is reached, the app makes a sound! Tap on Settings to adjust limits and RSS URL for prices. Enjoy!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Much wow!", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
 
-        }
+//        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
