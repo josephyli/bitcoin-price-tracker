@@ -1,5 +1,5 @@
 # dogecointracker
-An iPhone app that tracks Bitcoin prices, ambiently.
+An iPhone app that tracks Bitcoin prices, ambiently. The background color changes from red ("Low price!") to green ("High price!"), and there is beeping whenever a maximum or minimum threshold is met.
 
 ## Installation
 Clone the repository to your computer 
@@ -10,9 +10,11 @@ Open the DogecoinTracker.xcodeproj in Xcode 8.2 or newer. Click Build and Run to
 
 ![Hello bitcoin!](screenshot1.png )
 
-Tap Settings to adjust the minimum and maximum prices alerts and the update frequence.
+Tap Settings to adjust the minimum and maximum prices alerts and the frequency data is pulled to update the background's color.
 
 ![Settings](screenshot2.png)
 
-Save your settings and enjoy.
+Cancel/Save your settings and enjoy.
 That's it!
+
+This was an assignment to develop an ambient app for a software engineering class at University of Hawaii Manoa.
