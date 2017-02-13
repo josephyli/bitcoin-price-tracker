@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class SettingsViewController: UIViewController  {
     
@@ -23,7 +47,7 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var urlbox: UITextField!
 
-    @IBAction func maxAction(sender: AnyObject) {
+    @IBAction func maxAction(_ sender: AnyObject) {
         if (maxlabel.text != "") {
             maxstepper.value = Double(maxlabel.text!)!
         }
@@ -31,7 +55,7 @@ class SettingsViewController: UIViewController  {
             maxlabel.text = String(format: "%.2f", Double(maxstepper.value))
         }
     }
-    @IBAction func minAction(sender: AnyObject) {
+    @IBAction func minAction(_ sender: AnyObject) {
         if (minlabel.text != "") {
             minstepper.value = Double(minlabel.text!)!
         } else {
@@ -40,60 +64,60 @@ class SettingsViewController: UIViewController  {
 
     }
     // Called when the minimum stepper is changed
-    @IBAction func minstepperchanged(sender: UIStepper) {
+    @IBAction func minstepperchanged(_ sender: UIStepper) {
         minlabel.text = String(format: "%.2f", Double(sender.value))
     }
     
     // Called when the maximum stepper is changed
-    @IBAction func maxstepperchanged(sender: UIStepper) {
+    @IBAction func maxstepperchanged(_ sender: UIStepper) {
         maxlabel.text = String(format: "%.2f",Double(sender.value))
     }
     
-    @IBAction func cycleAction(sender: AnyObject) {
+    @IBAction func cycleAction(_ sender: AnyObject) {
         if (self.picker.text!.isEmpty) {
             self.picker.text = String(tracker!.cycle)
         }
     }
     
-    @IBAction func URLAction(sender: AnyObject) {
+    @IBAction func URLAction(_ sender: AnyObject) {
         
         if (self.urlbox.text!.isEmpty) {
             self.urlbox.text = String(tracker!.URL)
         }
     }
-    @IBAction func saveAction(sender: AnyObject) {
+    @IBAction func saveAction(_ sender: AnyObject) {
         
         if (self.maxlabel.text!.isEmpty || maxlabel.text == "") {
-            let alert = UIAlertController(title: "You forgot something", message:"Maximum price may not be empty", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "You forgot something", message:"Maximum price may not be empty", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
         }
 
         else if (self.minlabel.text!.isEmpty || minlabel.text == "") {
-            let alert = UIAlertController(title: "You forgot something", message:"Minimum price may not be empty", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "You forgot something", message:"Minimum price may not be empty", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
         }
         else if (self.picker.text!.isEmpty || Int(self.picker.text!) < 1) {
-            let alert = UIAlertController(title: "You forgot something", message:"Cycle time cannot be empty or less than 1", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "You forgot something", message:"Cycle time cannot be empty or less than 1", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
             self.picker.text = String(tracker!.cycle)
         }
         else if (Double(self.maxlabel.text!) < tracker?.currentPrice &&  maxlabel.text != "") {
-            let alert = UIAlertController(title: "Max price", message:"Max price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "Max price", message:"Max price should be set at a price greater than the current price: $\(tracker!.currentPrice). (Max price alert was set to $5 above current price.)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
             self.maxlabel.text = String(Double((tracker!.currentPrice)) + 5)
         }
         else if (Double(self.minlabel.text!) > tracker?.currentPrice && minlabel.text != "") {
-            let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price below than the current price: $\(tracker!.currentPrice). (Min price alert was set to $5 below current price.)", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "Min price", message:"Min price should be set at a price below than the current price: $\(tracker!.currentPrice). (Min price alert was set to $5 below current price.)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
             self.minlabel.text = String(Double((tracker!.currentPrice)) - 5)
         }
         else {
-            UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
             
             let max:Double? = Double(self.maxlabel.text!)
             let min:Double? = Double(self.minlabel.text!)
@@ -102,7 +126,7 @@ class SettingsViewController: UIViewController  {
             tracker?.setMin(min!)
             tracker?.setMax(max!)
             tracker?.setCycle(cycle)
-            self.performSegueWithIdentifier("Cancel" , sender: self)
+            self.performSegue(withIdentifier: "Cancel" , sender: self)
         }
 
     }
@@ -124,8 +148,8 @@ class SettingsViewController: UIViewController  {
     }
 
     // Mark Unwind Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let toViewController = segue.destinationViewController as! ViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let toViewController = segue.destination as! ViewController
         
         //Pass the selected object to the new view controller.
         tracker!.prepareToPullData()
@@ -133,12 +157,12 @@ class SettingsViewController: UIViewController  {
         toViewController.tracker = tracker!
     }
     
-    func unwindToViewController(sender: UIStoryboardSegue) {
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+    func unwindToViewController(_ sender: UIStoryboardSegue) {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
     
     func countdown() {
-        _ = NSTimer.scheduledTimerWithTimeInterval(Double(tracker!.getCycle()), target: self, selector: "countdown", userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: Double(tracker!.getCycle()), target: self, selector: #selector(SettingsViewController.countdown), userInfo: nil, repeats: false)
         updatePrice()
     }
     

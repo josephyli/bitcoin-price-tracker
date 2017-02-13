@@ -219,19 +219,22 @@
 				KnownAssetTags = (
 					Cancel,
 				);
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Myzithra;
 				TargetAttributes = {
 					FEE548A41BC225E100801747 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = ZS2F55TXK8;
+						LastSwiftMigration = 0820;
 					};
 					FEE548B81BC225E100801747 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = FEE548A41BC225E100801747;
 					};
 					FEE548C31BC225E100801747 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = FEE548A41BC225E100801747;
 					};
 				};
@@ -365,8 +368,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -409,8 +414,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -429,6 +436,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -444,6 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -458,6 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -469,6 +479,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogecoinTracker.app/DogecoinTracker";
 			};
 			name = Debug;
@@ -481,6 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogecoinTracker.app/DogecoinTracker";
 			};
 			name = Release;
@@ -492,6 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = DogecoinTracker;
 				USES_XCTRUNNER = YES;
 			};
@@ -504,6 +517,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myzithra.DogecoinTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = DogecoinTracker;
 				USES_XCTRUNNER = YES;
 			};

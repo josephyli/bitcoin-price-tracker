@@ -71,37 +71,37 @@ class DogecoinTracker {
     }
     
     /* sets the min value */
-    func setMin(min: Double) {
+    func setMin(_ min: Double) {
         self.min = min
     }
     
     /* sets the max value */
-    func setMax(max: Double) {
+    func setMax(_ max: Double) {
         self.max = max
     }
     
     /* sets the URL */
-    func setURL(URL: String) {
+    func setURL(_ URL: String) {
         self.URL = URL
     }
     
     /* sets the cycle value */
-    func setCycle(cycle: Int) {
+    func setCycle(_ cycle: Int) {
         self.cycle = cycle
     }
     
     /* sets the current price */
-    func setCurrentPrice(currentPrice: Double) {
+    func setCurrentPrice(_ currentPrice: Double) {
         self.currentPrice = currentPrice
     }
     
     /* Wrapper function that calls pullData() to get the current data */
     func prepareToPullData() {
-        let request = NSMutableURLRequest(URL: NSURL(string: URL)!)
-        pullData(request){
+        let request = NSMutableURLRequest(url: Foundation.URL(string: URL)!)
+        pullData(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 print(data)
             }
@@ -109,15 +109,15 @@ class DogecoinTracker {
     }
     
     /* pullData retrieves data from the URL and sets it as the current price */
-    func pullData(request: NSURLRequest!, callback: (String, String?) -> Void) {
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request){
+    func pullData(_ request: URLRequest!, callback: @escaping (String, String?) -> Void) {
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: {
             (data, response, error) -> Void in
             if error != nil {
                 callback("", error!.localizedDescription)
             } else {
                 let result = String(data: data!, encoding:
-                    NSASCIIStringEncoding)!
+                    String.Encoding.ascii)!
                 print("Pulled data: \(result)")
                 let newPrice = Double(result)
                 if (newPrice != nil) {
@@ -125,7 +125,7 @@ class DogecoinTracker {
                 }
                 callback(result as String, nil)
             }
-        }
+        })
         task.resume()
     }
 }
